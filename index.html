@@ -105,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/21/hello-world/" data-id="cj0jee2rt0004ocfleflggw34" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/21/hello-world/" data-id="cj0jenxb60009w8fl34aw48iq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,10 +167,73 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/21/python-random/" data-id="cj0jee2s9000bocflc9oghfto" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/21/python-random/" data-id="cj0jenxb6000aw8flpurmn21u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/python-random/">python,  random</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-to-exe" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="2017/03/21/python-to-exe/" class="article-date">
+  <time datetime="2017-03-21T08:25:32.000Z" itemprop="datePublished">2017-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2017/03/21/python-to-exe/">Python创建exe文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。</p>
+<p>py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win32com client server。和其他的独立程序。py2exe是发布在开源许可证下的。</p>
+<h2 id="安装py2exe"><a href="#安装py2exe" class="headerlink" title="安装py2exe"></a>安装py2exe</h2><p>从<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#imread" target="_blank" rel="external">网站</a>可以下载到py2exe‑0.6.10a1‑cp27‑none‑win_amd64.whl。然后可以使用pip install 安装。</p>
+<h2 id="py2exe的使用"><a href="#py2exe的使用" class="headerlink" title="py2exe的使用"></a>py2exe的使用</h2><p>假设我们有一个脚本：image_labeling.py的python脚本。现在打算将他们转化为exe文件。首先创建一个mysetup.py的脚本。如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mysetup.py</span></div><div class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</div><div class="line"><span class="keyword">import</span> py2exe</div><div class="line">setup(console=[<span class="string">"image_labeling.py"</span>])</div></pre></td></tr></table></figure>
+<p>运行方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python mysetup.py py2exe</div></pre></td></tr></table></figure>
+<p><img src="python-to-exe/exe.png" alt="生成的文件"></p>
+<p><img src="python-to-exe/ruanjian.png" alt="软件界面V1"></p>
+<p>上面的命令执行后将产生一个名为dist的子目录，其中包含了myscript.exe, python24.dll, library.zip这些文件。<br>如果你的myscript.py脚本中用了已编译的C扩展模块，那么这些模块也会被拷贝在个子目录中，同样，所有的dll文件在运行时都是需要的，除了系统的dll文件。<br>dist子目录中的文件包含了你的程序所必须的东西，你应将这个子目录中的所有内容一起发布。</p>
+<p>默认情况下，py2exe在目录dist下创建以下这些必须的文件：<br>1、一个或多个exe文件。<br>2、python##.dll。<br>3、几个.pyd文件，它们是已编译的扩展名，它们是exe文件所需要的；加上其它的.dll文件，这些.dll是.pyd所需要的。<br>4、一个library.zip文件，它包含了已编译的纯的python模块如.pyc或.pyo<br>上面的mysetup.py创建了一个控制台的myscript.exe程序，如果你要创建一个图形用户界的程序，那么你只需要将mysetup.py中的console=[“myscript.py”]替换为windows=[“myscript.py”]既可。</p>
+<p>py2exe一次能够创建多个exe文件，你需要将这些脚本文件的列表传递给console或windows的关键字参数。如果你有几个相关联的脚本，那么这是很有用的。<br>运行下面个命令，将显示py2exe命令的所有命令行标记。<br><code>python mysetup.py py2exe --help</code></p>
+<h2 id="指定额外的文件"><a href="#指定额外的文件" class="headerlink" title="指定额外的文件"></a>指定额外的文件</h2><p>一些应用程序在运行时需要额外的文件，诸如配置文件、字体、位图。<br>如果在安装脚本中用data_files可选项指定了那些额外的文件，那么py2exe能将这些文件拷贝到dist子目录中。data_files应包含一个元组(target-dir, files)列表，其中的files是这些额外的文件的列表。<br>示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># mysetup.py</span></div><div class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</div><div class="line"><span class="keyword">import</span> glob</div><div class="line"><span class="keyword">import</span> py2exe</div><div class="line"></div><div class="line">setup(console=[<span class="string">"myscript.py"</span>],</div><div class="line">       data_files=[(<span class="string">"bitmaps"</span>,</div><div class="line">                    [<span class="string">"bm/large.gif"</span>, <span class="string">"bm/small.gif"</span>]),</div><div class="line">                   (<span class="string">"fonts"</span>,</div><div class="line">                    glob.glob(<span class="string">"fonts\\*.fnt"</span>))],</div></pre></td></tr></table></figure>
+<p>说明：data_files选项将创建一个子目录dist\bitmaps，其中包含两个.gif文件；一个子目录dist\fonts，其中包含了所有的.fnt文件。</p>
+<h2 id="Windows-NT-services"><a href="#Windows-NT-services" class="headerlink" title="Windows NT services"></a>Windows NT services</h2><p>你可以通过传递一个service关键字参数给setup函数来建造Windows NT services<br>,这个service参数的值必须是一个Python模块名(包含一service类)的列表。<br>示例如下：</p>
+<p><code>mysetup.py</code></p>
+<p><code>from distutils.core import setup</code><br><code>import py2exe</code></p>
+<p><code>setup(service=[&quot;MyService&quot;])</code><br>所建造的可执行的service是可以通过在其后跟一定的命令行参数标记来自行安装和卸载的。你可以通过在这个可执行的service(exe)后跟一-help参数来得到更多的帮助。</p>
+<h2 id="COM-servers"><a href="#COM-servers" class="headerlink" title="COM servers"></a>COM servers</h2><p>你可以通过传递一个com_server 关键字参数给setup函数来建造Windows NT services<br>,这个service参数的值必须是一个Python模块名(包含一个或多个COM server 类)的列表。<br>示例如下：</p>
+<p><code>mysetup.py</code></p>
+<p><code>from distutils.core import setup</code><br><code>import py2exe</code></p>
+<p><code>setup(com_server=[&quot;win32com.server.interp&quot;])</code><br>默认情况下，DLL和EXE servers被建造，你不需要它们的话你可以简单的删除它们。</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="http://www.cnblogs.com/rj81/p/5495191.html" target="_blank" rel="external">参考</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/21/python-to-exe/" data-id="cj0jenxb6000ew8fl7t78xjyr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Python-exe/">Python, exe</a></li></ul>
 
     </footer>
   </div>
@@ -291,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/19/Genetic-Algorithms/" data-id="cj0jee2rt0001ocflp7x3zhpf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/19/Genetic-Algorithms/" data-id="cj0jenxar0004w8flud9fg0po" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/python-Algorithms/">python, Algorithms</a></li></ul>
@@ -372,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/17/python-PIL-matplotlib/" data-id="cj0jee2s90008ocflrl9tgaeh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/17/python-PIL-matplotlib/" data-id="cj0jenxb60006w8flvfz11nuq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/python-PIL-matplotlib/">python, PIL, matplotlib</a></li></ul>
@@ -426,7 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/15/python-parse-VOCxml-and-show/" data-id="cj0jee2s90009ocfl833ltxn9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/15/python-parse-VOCxml-and-show/" data-id="cj0jenxb6000cw8fljrqfh4zm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/python-VOCxml/">python VOCxml</a></li></ul>
@@ -520,7 +583,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/25/Written-LSTM/" data-id="cj0jee2rt0005ocflnfwsfei1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/25/Written-LSTM/" data-id="cj0jenxb60005w8flfsyyhf5d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/LSTM/">LSTM</a></li></ul>
@@ -588,7 +651,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/22/CUDA_installration/" data-id="cj0jee2rt0003ocflnflt9gj3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/22/CUDA_installration/" data-id="cj0jenxar0002w8flk7h7vxbk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/CUDA/">CUDA</a></li></ul>
@@ -637,7 +700,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/18/2D-Convolution/" data-id="cj0jee2re0000ocflmpe6hw3o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/18/2D-Convolution/" data-id="cj0jenxar0000w8flsok7z77r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/卷积/">卷积</a></li></ul>
@@ -661,7 +724,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/LSTM/">LSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/python-VOCxml/">python VOCxml</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/python-random/">python,  random</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/python-Algorithms/">python, Algorithms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/python-PIL-matplotlib/">python, PIL, matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/卷积/">卷积</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/LSTM/">LSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/Python-exe/">Python, exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/python-VOCxml/">python VOCxml</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/python-random/">python,  random</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/python-Algorithms/">python, Algorithms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/python-PIL-matplotlib/">python, PIL, matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/卷积/">卷积</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -671,7 +734,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="tags/CUDA/" style="font-size: 10px;">CUDA</a> <a href="tags/LSTM/" style="font-size: 10px;">LSTM</a> <a href="tags/python-VOCxml/" style="font-size: 10px;">python VOCxml</a> <a href="tags/python-random/" style="font-size: 10px;">python,  random</a> <a href="tags/python-Algorithms/" style="font-size: 10px;">python, Algorithms</a> <a href="tags/python-PIL-matplotlib/" style="font-size: 10px;">python, PIL, matplotlib</a> <a href="tags/卷积/" style="font-size: 10px;">卷积</a>
+      <a href="tags/CUDA/" style="font-size: 10px;">CUDA</a> <a href="tags/LSTM/" style="font-size: 10px;">LSTM</a> <a href="tags/Python-exe/" style="font-size: 10px;">Python, exe</a> <a href="tags/python-VOCxml/" style="font-size: 10px;">python VOCxml</a> <a href="tags/python-random/" style="font-size: 10px;">python,  random</a> <a href="tags/python-Algorithms/" style="font-size: 10px;">python, Algorithms</a> <a href="tags/python-PIL-matplotlib/" style="font-size: 10px;">python, PIL, matplotlib</a> <a href="tags/卷积/" style="font-size: 10px;">卷积</a>
     </div>
   </div>
 
@@ -680,7 +743,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/03/">三月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2016/08/">八月 2016</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2017/03/">三月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2016/08/">八月 2016</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -701,15 +764,15 @@
           </li>
         
           <li>
+            <a href="2017/03/21/python-to-exe/">Python创建exe文件</a>
+          </li>
+        
+          <li>
             <a href="2017/03/19/Genetic-Algorithms/">Genetic_Algorithms</a>
           </li>
         
           <li>
             <a href="2017/03/17/python-PIL-matplotlib/">python_PIL_matplotlib</a>
-          </li>
-        
-          <li>
-            <a href="2017/03/15/python-parse-VOCxml-and-show/">python_parse_VOCxml_and_show</a>
           </li>
         
       </ul>
