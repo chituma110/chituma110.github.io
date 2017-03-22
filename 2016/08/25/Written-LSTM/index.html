@@ -17,9 +17,9 @@
    本文是对Written Memories: Understanding, Deriving and Extending the LSTM的翻译。
 有什么错误请指正！
    当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就">
-<meta property="og:image" content="http://yoursite.com/Written-LSTM/NH_SingleRNNcell.png">
-<meta property="og:image" content="http://yoursite.com/Written-LSTM/NH_ComposedRNNcells.png">
-<meta property="og:image" content="http://yoursite.com/Written-LSTM/NH_StateLoop.png">
+<meta property="og:image" content="http://yoursite.com/2016/08/25/Written-LSTM/NH_SingleRNNcell.png">
+<meta property="og:image" content="http://yoursite.com/2016/08/25/Written-LSTM/NH_ComposedRNNcells.png">
+<meta property="og:image" content="http://yoursite.com/2016/08/25/Written-LSTM/NH_StateLoop.png">
 <meta property="og:updated_time" content="2017-03-20T02:07:47.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Written Memories:Understanding,Deriving and Extending the LSTM">
@@ -27,7 +27,7 @@
    本文是对Written Memories: Understanding, Deriving and Extending the LSTM的翻译。
 有什么错误请指正！
    当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就">
-<meta name="twitter:image" content="http://yoursite.com/Written-LSTM/NH_SingleRNNcell.png">
+<meta name="twitter:image" content="http://yoursite.com/2016/08/25/Written-LSTM/NH_SingleRNNcell.png">
   
     <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml">
   
@@ -149,22 +149,22 @@
 <h1 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h1><p>​    </p>
 <p>​    从一个时刻到下一个时刻，我们的大脑就像一个函数一样在工作，它从我们的感官（外部）和我们的思维（内部）得到输入，然后处理一番，得到以动作形式（外部）和新的想法（内部）的输出。例如，我们看到 一只熊，然后我们就会想到单词“熊”，我们可以构建一个神经网络来模拟这种行为，我们可以训练神经网络去联想到单词“熊”当它看到一张熊的照片的时候。但是我们的大脑不仅仅是一个只有一次的函数，它随着时间重复运行。我们看见一只熊，然后我们想到了单词“熊”,然后我们就会想到“跑”， 重要的是，将熊的图片转化为单词“熊的网络和将单词“熊”转化为”跑“的网络是十分相似的。同时，它也是一个 循环的函数，对于这样的函数我们可以用递归神经网络来模拟。</p>
 <p>​    RNN网络是一系列完全相同的前向神经网络的组合，每一个前向神经网络处理每一个时间步，我们都称之为“RNN cells”.值得注意的是这个定义比我们通常的对RNN的定义(“vanilla” RNN将在下文中介绍作为LSTM的先驱)更为广泛。这些cells可以处理他们自己的输出，允许他们(cells)被组合。他们同时可以处理外部的输入，产生外部的输出。下面是单独一个RNN cell 的示例图：</p>
-<p><img src="Written-LSTM/NH_SingleRNNcell.png" alt="Single_RNN_cell"></p>
+<p><img src="/2016/08/25/Written-LSTM/NH_SingleRNNcell.png" alt="Single_RNN_cell"></p>
 <p>下面是三个RNN cell的组合的示例图：</p>
-<p><img src="Written-LSTM/NH_ComposedRNNcells.png" alt="NH_Composed_RNN_cells"></p>
+<p><img src="/2016/08/25/Written-LSTM/NH_ComposedRNNcells.png" alt="NH_Composed_RNN_cells"></p>
 <p>​    你可以认为这种循环的输出是“状态”，他们被输入到下一个时间步。所以，一个“RNN cell” 接收前一个状态和现有的输入(可选)，然后输出现在的状态，以及现在的输出(可选)。</p>
 <p>下面是“RNN cell” 的代数描述:<br>$$<br>\binom{s<em>{t}}{o</em>{t}} = f\binom{s<em>{t-1}}{x</em>{t}}<br>$$<br>其中：<br>$$<br>s<em>{t}和s</em>{t-1}表示当前和前一刻状态<br>$$</p>
 <p>$$<br>o_{t}表示当前时刻的输出(可能是空)<br>$$</p>
 <p>$$<br>x_{t}是当前状态的输入,f是当前的循环函数<br>$$</p>
 <p>​    我们就大脑的运行方式：当前的神经元活动将会替代之前的神经元活动。我们可以将RNNs看做这种原地的操作，因为”RNN cell”是完全相同的，他们可以被看做是相同的对象，只是在每一个时间步他们的状态会被覆盖。下面是这个框架的示例图：</p>
-<p><img src="Written-LSTM/NH_StateLoop.png" alt="NH_State_Loop"></p>
+<p><img src="/2016/08/25/Written-LSTM/NH_StateLoop.png" alt="NH_State_Loop"></p>
 <p>​    大多数对于RNNs的介绍都是从”single cell loop”框架开始的，但是我认为读者应该会认为以上连续的框架会更加的直观，特别是考虑到反向传播的时候。当我们从”single cell loop”开始学习的额时候。RNN会被引入”unrolled”以得到上面所提到的连续的框架。</p>
 <h1 id="RNNs可以做什么？选择单位时间"><a href="#RNNs可以做什么？选择单位时间" class="headerlink" title="RNNs可以做什么？选择单位时间"></a>RNNs可以做什么？选择单位时间</h1><p>​    </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/25/Written-LSTM/" data-id="cj0kkdjyp00064sflt9lxw276" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/25/Written-LSTM/" data-id="cj0kkfusb00095sfl2kfl1kar" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LSTM/">LSTM</a></li></ul>

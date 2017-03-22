@@ -15,15 +15,15 @@ py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win3">
 <meta property="og:description" content="写在前面的话这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。
 简介py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。
 py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win3">
-<meta property="og:image" content="http://yoursite.com/python-to-exe/exe.png">
-<meta property="og:image" content="http://yoursite.com/python-to-exe/ruanjian.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/21/python-to-exe/exe.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/21/python-to-exe/ruanjian.png">
 <meta property="og:updated_time" content="2017-03-21T10:58:45.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python创建exe文件">
 <meta name="twitter:description" content="写在前面的话这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。
 简介py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。
 py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win3">
-<meta name="twitter:image" content="http://yoursite.com/python-to-exe/exe.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/21/python-to-exe/exe.png">
   
     <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml">
   
@@ -108,8 +108,8 @@ py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win3">
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment"># mysetup.py</span></div><div class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</div><div class="line"><span class="keyword">import</span> py2exe</div><div class="line">setup(console=[<span class="string">"image_labeling.py"</span>])</div></pre></td></tr></table></figure>
 <p>运行方法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">python mysetup.py py2exe</div></pre></td></tr></table></figure>
-<p><img src="python-to-exe/exe.png" alt="生成的文件"></p>
-<p><img src="python-to-exe/ruanjian.png" alt="软件界面V1"></p>
+<p><img src="/2017/03/21/python-to-exe/exe.png" alt="生成的文件"></p>
+<p><img src="/2017/03/21/python-to-exe/ruanjian.png" alt="软件界面V1"></p>
 <p>上面的命令执行后将产生一个名为dist的子目录，其中包含了myscript.exe, python24.dll, library.zip这些文件。<br>如果你的myscript.py脚本中用了已编译的C扩展模块，那么这些模块也会被拷贝在个子目录中，同样，所有的dll文件在运行时都是需要的，除了系统的dll文件。<br>dist子目录中的文件包含了你的程序所必须的东西，你应将这个子目录中的所有内容一起发布。</p>
 <p>默认情况下，py2exe在目录dist下创建以下这些必须的文件：<br>1、一个或多个exe文件。<br>2、python##.dll。<br>3、几个.pyd文件，它们是已编译的扩展名，它们是exe文件所需要的；加上其它的.dll文件，这些.dll是.pyd所需要的。<br>4、一个library.zip文件，它包含了已编译的纯的python模块如.pyc或.pyo<br>上面的mysetup.py创建了一个控制台的myscript.exe程序，如果你要创建一个图形用户界的程序，那么你只需要将mysetup.py中的console=[“myscript.py”]替换为windows=[“myscript.py”]既可。</p>
 <p>py2exe一次能够创建多个exe文件，你需要将这些脚本文件的列表传递给console或windows的关键字参数。如果你有几个相关联的脚本，那么这是很有用的。<br>运行下面个命令，将显示py2exe命令的所有命令行标记。<br><code>python mysetup.py py2exe --help</code></p>
@@ -129,7 +129,7 @@ py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win3">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/21/python-to-exe/" data-id="cj0kkdjyw000e4sfl416tpwj4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/21/python-to-exe/" data-id="cj0kkfusi000i5sfl8j3sfbjz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-exe/">python, exe</a></li></ul>

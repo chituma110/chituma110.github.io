@@ -15,15 +15,15 @@
 <meta property="og:description" content="写在前面的话因为打算用遗传算法来优化深度神经网络的训练过程，所以，这两天熟悉了一下遗传算法(Genetic algorithms)，这里就来简要的记录一下这两天的学习。
 算法遗传算法(genetic algorithm (GA))是计算机数学中用于解决最优化的搜索算法，是进化算法的一种。
 遗传算法通常实现方式为一种计算机模拟。对于一个最优化问题，一定数量的候选解(个体)可以抽象表示为染色体，使得种">
-<meta property="og:image" content="http://yoursite.com/Genetic-Algorithms/flow_chart.jpg">
-<meta property="og:image" content="http://yoursite.com/Genetic-Algorithms/function.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/19/Genetic-Algorithms/flow_chart.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/19/Genetic-Algorithms/function.png">
 <meta property="og:updated_time" content="2017-03-19T08:22:51.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Genetic_Algorithms">
 <meta name="twitter:description" content="写在前面的话因为打算用遗传算法来优化深度神经网络的训练过程，所以，这两天熟悉了一下遗传算法(Genetic algorithms)，这里就来简要的记录一下这两天的学习。
 算法遗传算法(genetic algorithm (GA))是计算机数学中用于解决最优化的搜索算法，是进化算法的一种。
 遗传算法通常实现方式为一种计算机模拟。对于一个最优化问题，一定数量的候选解(个体)可以抽象表示为染色体，使得种">
-<meta name="twitter:image" content="http://yoursite.com/Genetic-Algorithms/flow_chart.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/19/Genetic-Algorithms/flow_chart.jpg">
   
     <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml">
   
@@ -103,7 +103,7 @@
         <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>因为打算用遗传算法来优化深度神经网络的训练过程，所以，这两天熟悉了一下遗传算法(Genetic algorithms)，这里就来简要的记录一下这两天的学习。</p>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a><a href="https://zh.wikipedia.org/wiki/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95" target="_blank" rel="external">算法</a></h1><p>遗传算法(genetic algorithm (GA))是计算机数学中用于解决最优化的搜索算法，是进化算法的一种。</p>
 <p>遗传算法通常实现方式为一种计算机模拟。对于一个最优化问题，一定数量的候选解(个体)可以抽象表示为染色体，使得种群向更好的解进化。传统上，解用二进制表示(0和1的串)，但是也可以用其他的表示方法。进化从完全随机个体的种群开始，之后一代一代发生。在每一代中评价整个种群的适应度，从当前种群中随机选择多个个体(基于他们的适应度)。通过自然选择和突变产生新的生命种群，该种群在算法的下一次迭代中成为当前种群。</p>
-<h2 id="算法流程图"><a href="#算法流程图" class="headerlink" title="算法流程图"></a>算法流程图</h2><p><img src="Genetic-Algorithms/flow_chart.jpg" alt="算法流程图"></p>
+<h2 id="算法流程图"><a href="#算法流程图" class="headerlink" title="算法流程图"></a>算法流程图</h2><p><img src="/2017/03/19/Genetic-Algorithms/flow_chart.jpg" alt="算法流程图"></p>
 <h2 id="算法细节"><a href="#算法细节" class="headerlink" title="算法细节"></a>算法细节</h2><ul>
 <li>编码–&gt;创造染色体</li>
 <li>个体–&gt;种群</li>
@@ -163,7 +163,7 @@
 <p>一般来说，交叉概率(cross_rate)比较大，变异概率(mutate_rate)极低。像求解函数最大值这类问题，</p>
 <p>因为遗传算法相信2条优秀的父母染色体交叉更有可能产生优秀的后代，而变异的话产生优秀后代的可能性极低，不过也有存在可能一下就变异出非常优秀的后代。这也是符合自然界生物进化的特征的。</p>
 <h2 id="待求解问题"><a href="#待求解问题" class="headerlink" title="待求解问题"></a>待求解问题</h2><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">求解函数 f(x) = x + <span class="number">10</span>*sin(<span class="number">5</span>*x) + <span class="number">7</span>*cos(<span class="number">4</span>*x) 在区间[<span class="number">0</span>,<span class="number">9</span>]的最大值。</div></pre></td></tr></table></figure>
-<p><img src="Genetic-Algorithms/function.png" alt="function"></p>
+<p><img src="/2017/03/19/Genetic-Algorithms/function.png" alt="function"></p>
 <h3 id="编码和解码"><a href="#编码和解码" class="headerlink" title="编码和解码"></a>编码和解码</h3><p>假如设定求解的精度为小数点后4位，可以将x的解空间划分为 <code>(9-0)×(1e+4)=90000</code>个等分。</p>
 <p><code>2^16&lt;90000&lt;2^17</code>，需要17位二进制数来表示这些解。换句话说，一个解的编码就是一个17位的二进制串。</p>
 <p>一开始，这些二进制串是随机生成的。</p>
@@ -190,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/19/Genetic-Algorithms/" data-id="cj0kkdjyf00044sfl1qahghma" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/19/Genetic-Algorithms/" data-id="cj0kkfurk00025sflw0wrflb9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-Algorithms/">python, Algorithms</a></li></ul>
