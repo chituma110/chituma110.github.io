@@ -17,13 +17,15 @@ Python写层最多的是看到些数据层。所以我们今天就写一个数�
 Python写层最多的是看到些数据层。所以我们今天就写一个数据层的例子。我们一共分3步走。
 步奏一：写新层​    
 #！-*- coding: utf-8 -*-#author = Cqs#FileName: MyPythonLayer.py  #1import caffeimp">
-<meta property="og:updated_time" content="2017-03-22T06:01:10.920Z">
+<meta property="og:image" content="http://yoursite.com/2017/03/22/Python写caffe层/net.png">
+<meta property="og:updated_time" content="2017-03-22T11:28:37.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python写caffe层">
 <meta name="twitter:description" content="写在前面的话因为工作需要，需要用Python写新层，正好也看过这方面的工作。今天就来小小的记录一下，以免自己忘记了。
 Python写层最多的是看到些数据层。所以我们今天就写一个数据层的例子。我们一共分3步走。
 步奏一：写新层​    
 #！-*- coding: utf-8 -*-#author = Cqs#FileName: MyPythonLayer.py  #1import caffeimp">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/22/Python写caffe层/net.png">
   
     <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml">
   
@@ -131,6 +133,7 @@ Python写层最多的是看到些数据层。所以我们今天就写一个数�
 </ul>
 <h2 id="步骤二：生成prototxt"><a href="#步骤二：生成prototxt" class="headerlink" title="步骤二：生成prototxt"></a>步骤二：生成prototxt</h2><p>本来可以用Python直接生成prototxt的。但是我这里遇到了带你问题，我这里还是直接给出prototxt吧。下次博客再给出Python代码生成prototxt的方法吧。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment">#file_name = mylayer.prototxt</span></div><div class="line">layer&#123;</div><div class="line">name:<span class="string">'mylayer'</span></div><div class="line">type:<span class="string">'Python'</span></div><div class="line">top:<span class="string">'images'</span></div><div class="line">python_param&#123;</div><div class="line">    module:<span class="string">'MyPythonLayer'</span></div><div class="line">    layer:<span class="string">'myPythonLayer'</span></div><div class="line">    param_str:<span class="string">"'source_dir': '/home/amax/cqs/caffe-master/example/Cqs/data','target_size': 100,'batch_size': 200"</span></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/22/Python写caffe层/net.png" alt="网络框图"></p>
 <p><strong>解释：</strong></p>
 <ol>
 <li>我们用Python写的层的type都是’python’.</li>
@@ -148,7 +151,7 @@ Python写层最多的是看到些数据层。所以我们今天就写一个数�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/22/Python写caffe层/" data-id="cj0kklnl30004acflwk57uake" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/22/Python写caffe层/" data-id="cj0kvyv120002msflt5gh133a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-caffe/">python, caffe</a></li></ul>
@@ -181,7 +184,7 @@ Python写层最多的是看到些数据层。所以我们今天就写一个数�
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LSTM/">LSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-VOCxml/">python VOCxml</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-random/">python,  random</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-Algorithms/">python, Algorithms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-PIL-matplotlib/">python, PIL, matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-caffe/">python, caffe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-exe/">python, exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卷积/">卷积</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LSTM/">LSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-VOCxml/">python VOCxml</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-exe/">python exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-random/">python,  random</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-Algorithms/">python, Algorithms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-PIL-matplotlib/">python, PIL, matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-caffe/">python, caffe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卷积/">卷积</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -191,7 +194,7 @@ Python写层最多的是看到些数据层。所以我们今天就写一个数�
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CUDA/" style="font-size: 10px;">CUDA</a> <a href="/tags/LSTM/" style="font-size: 10px;">LSTM</a> <a href="/tags/python-VOCxml/" style="font-size: 10px;">python VOCxml</a> <a href="/tags/python-random/" style="font-size: 10px;">python,  random</a> <a href="/tags/python-Algorithms/" style="font-size: 10px;">python, Algorithms</a> <a href="/tags/python-PIL-matplotlib/" style="font-size: 10px;">python, PIL, matplotlib</a> <a href="/tags/python-caffe/" style="font-size: 10px;">python, caffe</a> <a href="/tags/python-exe/" style="font-size: 10px;">python, exe</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/卷积/" style="font-size: 10px;">卷积</a>
+      <a href="/tags/CUDA/" style="font-size: 10px;">CUDA</a> <a href="/tags/LSTM/" style="font-size: 10px;">LSTM</a> <a href="/tags/python-VOCxml/" style="font-size: 10px;">python VOCxml</a> <a href="/tags/python-exe/" style="font-size: 10px;">python exe</a> <a href="/tags/python-random/" style="font-size: 10px;">python,  random</a> <a href="/tags/python-Algorithms/" style="font-size: 10px;">python, Algorithms</a> <a href="/tags/python-PIL-matplotlib/" style="font-size: 10px;">python, PIL, matplotlib</a> <a href="/tags/python-caffe/" style="font-size: 10px;">python, caffe</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/卷积/" style="font-size: 10px;">卷积</a>
     </div>
   </div>
 
