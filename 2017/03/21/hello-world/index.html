@@ -13,7 +13,7 @@ Quick">
 <meta property="og:site_name" content="程起上的博客">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick">
-<meta property="og:updated_time" content="2017-03-21T09:30:03.296Z">
+<meta property="og:updated_time" content="2017-03-22T06:10:38.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World">
 <meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
@@ -102,12 +102,22 @@ Quick">
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h3><p>hexo中添加图片的方法<br>1.设置站点配置_config.yml</p>
+<blockquote>
+<p>post_asset_folder: true</p>
+</blockquote>
+<p>2.安装插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install https://github.com/CodeFalling/hexo-asset-image -- save11</div></pre></td></tr></table></figure>
+<p>3 引用图片<br>3.1 利用标签引用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1 &#123;% asset_path slug %&#125;</div><div class="line">2 &#123;% asset_img slug [title] %&#125;</div><div class="line">3 &#123;% asset_link slug [title] %&#125;123123</div></pre></td></tr></table></figure>
+<p>3.2 利用makdown</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">![例子](例子.png)11</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/21/hello-world/" data-id="cj0kkim5g0009jcfl1ngi9dyz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/21/hello-world/" data-id="cj0kklnld0006acfl84g4nezz" class="article-share-link">Share</a>
       
       
     </footer>
