@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: CUDA | 程起上的博客</title>
+  <title>程起上的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Goals determine what you are going to be">
 <meta property="og:type" content="website">
 <meta property="og:title" content="程起上的博客">
-<meta property="og:url" content="http://yoursite.com/tags/CUDA/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="程起上的博客">
 <meta property="og:description" content="Goals determine what you are going to be">
 <meta name="twitter:card" content="summary">
@@ -70,38 +70,60 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/08/22/CUDA_installration/" class="archive-article-date">
-  <time datetime="2016-08-22T10:28:02.000Z" itemprop="datePublished">8月 22</time>
+    <article id="post-2D-Convolution" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/2D-Convolution/" class="article-date">
+  <time datetime="2016-08-18T08:53:16.000Z" itemprop="datePublished">2016-08-18</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/22/CUDA_installration/">CUDA安装教程</a>
+      <a class="article-title" href="/2016/08/18/2D-Convolution/">2D_Convolution</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文原地址:<a href="http://blog.sciencenet.cn/blog-268138-383185.html" target="_blank" rel="external">this page</a>  </p>
+<p><strong>卷积运算</strong>(Convolution)是通过两个函数f 和g 生成第三个函数的一种数学算子，表示函数f 与经过翻转和平移与g 的重叠部分的累积。如果将参加卷积的一个函数看作区间的指示函数，卷积还可以被看作是“滑动平均”的推广。</p>
+<p>假设: f(x),g(x)是R1上的两个可积函数，并且积分是存在的。这样，随着 x 的不同取值，这个积分就定义了一个新函数h(x)，称为函数f 与g 的卷积，记为h(x)＝(f*g)(x)。</p>
+<p>两个向量卷积，说白了就是<strong>多项式乘法</strong>。下面用个矩阵例子说明其工作原理：</p>
+<p><img src="2D-Convolution/2D_Convolution1.jpg" alt="2D_Convolution1"></p>
+<p><img src="2D-Convolution/2D_Convolution2.jpg" alt="2D_Convolution2"></p>
+<p>a和d的卷积就是，把a和d的第一行作为一个多项式的系数，按多项式升幂排列（也可以按降幂），即为：</p>
+<p><img src="2D-Convolution/2D_Convolution3.jpg" alt="2D_Convolution3"></p>
+<p>所得卷积矩阵为：</p>
+<p><img src="2D-Convolution/2D_Convolution.jpg" alt="2D_Convolution"></p>
+<p>这就是卷积运算的工作原理，在图像处理中用处非常大。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/2D-Convolution/" data-id="cj0kk9pmv0005r0flz2b0fcvd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/卷积/">卷积</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 </section>
         
           <aside id="sidebar">
