@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
+
+
+  <html class="light page-post">
+
+
 <head>
   <meta charset="utf-8">
   
   <title>python_parse_VOCxml_and_show | 程起上的博客</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="python VOCxml," />
+  
+
   <meta name="description" content="前言今天详细的处理了 一下VOC的XML 文件，包括将xml 解析出来，并将bbox显示出来。
 简要介绍一下VOC的xml文件VOC的检测任务的目标标签是写在对应xml文件中的。一般xml文件会包含对应图片的名字，尺寸，以及难度，以及所有目标的名字，和boundingbox的对角坐标。
 下面给出一个xml的示例：
@@ -27,83 +37,213 @@
 下面给出一个xml的示例：
 &amp;lt;annotation&amp;gt;	&amp;lt;folder&amp;gt;VOC2007&amp;l">
 <meta name="twitter:image" content="http://yoursite.com/2017/03/15/python-parse-VOCxml-and-show/000001.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
   
 
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">程起上的博客</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Goals determine what you are going to be</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">about</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-python-parse-VOCxml-and-show" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/15/python-parse-VOCxml-and-show/" class="article-date">
-  <time datetime="2017-03-15T08:48:22.000Z" itemprop="datePublished">2017-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+
+
   
-    <h1 class="article-title" itemprop="name">
-      python_parse_VOCxml_and_show
-    </h1>
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天详细的处理了 一下VOC的XML 文件，包括将xml 解析出来，并将bbox显示出来。</p>
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简要介绍一下VOC的xml文件"><span class="toc-text">简要介绍一下VOC的xml文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python解析XML文件"><span class="toc-text">python解析XML文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导入xml包"><span class="toc-text">导入xml包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python显示xml结果"><span class="toc-text">python显示xml结果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导入matplotlib和PIL包"><span class="toc-text">导入matplotlib和PIL包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#后语"><span class="toc-text">后语</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-python-parse-VOCxml-and-show" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">python_parse_VOCxml_and_show</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.03.15</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>chengqishang</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="https://chituma110.github.io/index.html/2017/03/15/python-parse-VOCxml-and-show/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天详细的处理了 一下VOC的XML 文件，包括将xml 解析出来，并将bbox显示出来。</p>
 <h1 id="简要介绍一下VOC的xml文件"><a href="#简要介绍一下VOC的xml文件" class="headerlink" title="简要介绍一下VOC的xml文件"></a>简要介绍一下VOC的xml文件</h1><p>VOC的检测任务的目标标签是写在对应xml文件中的。一般xml文件会包含对应图片的名字，尺寸，以及难度，以及所有目标的名字，和boundingbox的对角坐标。</p>
 <p>下面给出一个xml的示例：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">annotation</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">folder</span>&gt;</span>VOC2007<span class="tag">&lt;/<span class="name">folder</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filename</span>&gt;</span>000001.jpg<span class="tag">&lt;/<span class="name">filename</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">database</span>&gt;</span>The VOC2007 Database<span class="tag">&lt;/<span class="name">database</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">annotation</span>&gt;</span>PASCAL VOC2007<span class="tag">&lt;/<span class="name">annotation</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">image</span>&gt;</span>flickr<span class="tag">&lt;/<span class="name">image</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">flickrid</span>&gt;</span>341012865<span class="tag">&lt;/<span class="name">flickrid</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">owner</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">flickrid</span>&gt;</span>Fried Camels<span class="tag">&lt;/<span class="name">flickrid</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>Jinky the Fruit Bat<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">owner</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">size</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">width</span>&gt;</span>353<span class="tag">&lt;/<span class="name">width</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">height</span>&gt;</span>500<span class="tag">&lt;/<span class="name">height</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">depth</span>&gt;</span>3<span class="tag">&lt;/<span class="name">depth</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">size</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">segmented</span>&gt;</span>0<span class="tag">&lt;/<span class="name">segmented</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">object</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>dog<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">pose</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">pose</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">truncated</span>&gt;</span>1<span class="tag">&lt;/<span class="name">truncated</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">difficult</span>&gt;</span>0<span class="tag">&lt;/<span class="name">difficult</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">bndbox</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">xmin</span>&gt;</span>48<span class="tag">&lt;/<span class="name">xmin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ymin</span>&gt;</span>240<span class="tag">&lt;/<span class="name">ymin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">xmax</span>&gt;</span>195<span class="tag">&lt;/<span class="name">xmax</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ymax</span>&gt;</span>371<span class="tag">&lt;/<span class="name">ymax</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">bndbox</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">object</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">object</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>person<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">pose</span>&gt;</span>Left<span class="tag">&lt;/<span class="name">pose</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">truncated</span>&gt;</span>1<span class="tag">&lt;/<span class="name">truncated</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">difficult</span>&gt;</span>0<span class="tag">&lt;/<span class="name">difficult</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">bndbox</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">xmin</span>&gt;</span>8<span class="tag">&lt;/<span class="name">xmin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ymin</span>&gt;</span>12<span class="tag">&lt;/<span class="name">ymin</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">xmax</span>&gt;</span>352<span class="tag">&lt;/<span class="name">xmax</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">ymax</span>&gt;</span>498<span class="tag">&lt;/<span class="name">ymax</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">bndbox</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">object</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">annotation</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -120,140 +260,218 @@
 <p>结果图：</p>
 <p><img src="/2017/03/15/python-parse-VOCxml-and-show/result_parse_vocxml.png" alt="000001.jpg"></p>
 <h1 id="后语"><a href="#后语" class="headerlink" title="后语"></a>后语</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/15/python-parse-VOCxml-and-show/" data-id="cj0ltcqkl000abgfldjgjcnuy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-VOCxml/">python VOCxml</a></li></ul>
-
-    </footer>
-  </div>
-  
     
-<nav id="article-nav">
-  
-    <a href="/2017/03/17/python-PIL-matplotlib/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          python_PIL_matplotlib
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/08/25/Written-LSTM/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Written Memories:Understanding,Deriving and Extending the LSTM</div>
-    </a>
-  
-</nav>
-
-  
+  </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LSTM/">LSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-VOCxml/">python VOCxml</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-exe/">python exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-random/">python,  random</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-Algorithms/">python, Algorithms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-PIL-matplotlib/">python, PIL, matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-caffe/">python, caffe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/卷积/">卷积</a><span class="tag-list-count">1</span></li></ul>
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
     </div>
   </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CUDA/" style="font-size: 10px;">CUDA</a> <a href="/tags/LSTM/" style="font-size: 10px;">LSTM</a> <a href="/tags/python-VOCxml/" style="font-size: 10px;">python VOCxml</a> <a href="/tags/python-exe/" style="font-size: 10px;">python exe</a> <a href="/tags/python-random/" style="font-size: 10px;">python,  random</a> <a href="/tags/python-Algorithms/" style="font-size: 10px;">python, Algorithms</a> <a href="/tags/python-PIL-matplotlib/" style="font-size: 10px;">python, PIL, matplotlib</a> <a href="/tags/python-caffe/" style="font-size: 10px;">python, caffe</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/卷积/" style="font-size: 10px;">卷积</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">3</span></li></ul>
-    </div>
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2016/08/25/Written-LSTM/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/03/17/python-PIL-matplotlib/">
+        <i class="icon icon-angle-right"></i>
+    </a>
   </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
         
-          <li>
-            <a href="/2017/03/22/Python写caffe层/">Python写caffe层</a>
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
           </li>
         
-          <li>
-            <a href="/2017/03/21/test/">Test</a>
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
           </li>
         
-          <li>
-            <a href="/2017/03/21/hello-world/">Hello World</a>
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
           </li>
         
-          <li>
-            <a href="/2017/03/21/python-random/">Python-Random</a>
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
           </li>
         
-          <li>
-            <a href="/2017/03/21/python-to-exe/">Python创建exe文件</a>
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
           </li>
         
       </ul>
+
     </div>
   </div>
+</div>
+
+
 
   
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 chengqishang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">about</a>
-  
-</nav>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = 'http://yoursite.com/2017/03/15/python-parse-VOCxml-and-show/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
+    
 
   </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
 </body>
 </html>
