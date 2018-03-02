@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Caffe安装新坑 | 程起上的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="opencv, libatk," />
+  
+
+  <meta name="description" content="#写在前面的话
+今天教研室新进了两台双TITANX的机器。老板大人叫我测一下，机器跑网络的时候声音大不大。本来觉得简单得很，，，毕竟我已经是老手了。但是现实给了我一个小巴掌。。。啪啪作响。。
+遇到三个问题。
+问题一 更新源时出现 404 NotFound  sudo apt-get update这句是常用的更新源的命令。但是嘞，这段时间出现了个怪现象，    W: 无法下载 http://ppa.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Caffe安装新坑">
+<meta property="og:url" content="http://yoursite.com/2017/12/06/caffe_install/index.html">
+<meta property="og:site_name" content="程起上的博客">
+<meta property="og:description" content="#写在前面的话
+今天教研室新进了两台双TITANX的机器。老板大人叫我测一下，机器跑网络的时候声音大不大。本来觉得简单得很，，，毕竟我已经是老手了。但是现实给了我一个小巴掌。。。啪啪作响。。
+遇到三个问题。
+问题一 更新源时出现 404 NotFound  sudo apt-get update这句是常用的更新源的命令。但是嘞，这段时间出现了个怪现象，    W: 无法下载 http://ppa.">
+<meta property="og:image" content="http://yoursite.com/2017/12/06/caffe_install/fig1.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/06/caffe_install/fig2.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/06/caffe_install/fig3.jpg">
+<meta property="og:updated_time" content="2018-03-02T07:15:51.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Caffe安装新坑">
+<meta name="twitter:description" content="#写在前面的话
+今天教研室新进了两台双TITANX的机器。老板大人叫我测一下，机器跑网络的时候声音大不大。本来觉得简单得很，，，毕竟我已经是老手了。但是现实给了我一个小巴掌。。。啪啪作响。。
+遇到三个问题。
+问题一 更新源时出现 404 NotFound  sudo apt-get update这句是常用的更新源的命令。但是嘞，这段时间出现了个怪现象，    W: 无法下载 http://ppa.">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/06/caffe_install/fig1.jpg">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一-更新源时出现-404-NotFound"><span class="toc-text">问题一 更新源时出现 404 NotFound</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题二-libopencv-dev的安装"><span class="toc-text">问题二 libopencv-dev的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题三-libcudart-so-8-0"><span class="toc-text">问题三 libcudart.so.8.0</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-caffe_install" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Caffe安装新坑</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.12.06</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>chengqishang</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>#写在前面的话</p>
+<p>今天教研室新进了两台双TITANX的机器。老板大人叫我测一下，机器跑网络的时候声音大不大。本来觉得简单得很，，，毕竟我已经是老手了。但是现实给了我一个小巴掌。。。啪啪作响。。</p>
+<p>遇到三个问题。</p>
+<h2 id="问题一-更新源时出现-404-NotFound"><a href="#问题一-更新源时出现-404-NotFound" class="headerlink" title="问题一 更新源时出现 404 NotFound"></a>问题一 更新源时出现 404 NotFound</h2><p>  <code>sudo apt-get update</code>这句是常用的更新源的命令。但是嘞，这段时间出现了个怪现象，<br>    <code>W: 无法下载 http://ppa.launchpad.net/fcitx-team/nightly/ubuntu/dists/jessie/main/binary-amd64/Packages  404  Not Found</code></p>
+<p><img src="/2017/12/06/caffe_install/fig1.jpg" alt="错误的现象"></p>
+<p>出现了这个状况咋解决了？</p>
+<p>#解决方案：<br>  将对应的PPA删除掉即可</p>
+<p>  使用以下命令切换到对应PPA目录：<br>    <code>cd /etc/apt/sources.list.d</code><br><img src="/2017/12/06/caffe_install/fig2.jpg" alt="解决方案"></p>
+<p>找到上述无法下载的对应PPA目录，即extra-ppas.list，安全起见，用mv命令将该文件添加后缀.bak即可</p>
+<p><img src="/2017/12/06/caffe_install/fig3.jpg" alt="结果"></p>
+<p>这个时候就好了。</p>
+<h2 id="问题二-libopencv-dev的安装"><a href="#问题二-libopencv-dev的安装" class="headerlink" title="问题二 libopencv-dev的安装"></a>问题二 libopencv-dev的安装</h2><p>  安装opencv真的是个大坑。。。我先是用最基本的<code>sudo apt-get install libopencv-dev</code>来安装的。但是嘞，出现了个错误，就是说libatk无法安装。怎么弄都解决不了。</p>
+<p>  后来我安装了aptitude(<code>sudo apt-get install aptitude</code>)<br>  然后利用aptitude 来安装libopencv-dev（<code>sudo aptitude install libopencv-dev</code>）<br>  你还真别说。。。这么一变化，我还就安装成功了。。。。</p>
+<h2 id="问题三-libcudart-so-8-0"><a href="#问题三-libcudart-so-8-0" class="headerlink" title="问题三 libcudart.so.8.0"></a>问题三 libcudart.so.8.0</h2><p>这个问题最好解决。</p>
+<pre><code>`export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+ export PATH=/usr/local/cuda-8.0/bin:$PATH`
+</code></pre><p>你还别说，就这3个小问题。。。折腾了我一个下午。。。主要是如何解决问题二。</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，chengqishang</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr_wechat.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/07/python-file-print/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
