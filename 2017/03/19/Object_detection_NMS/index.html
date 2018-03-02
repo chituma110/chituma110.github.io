@@ -12,26 +12,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Python, object_detection," />
+    <meta name="keywords" content="python, object_detection," />
   
 
-  <meta name="description" content="写在前面的话​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。
+  <meta name="description" content="#写在前面的话
+​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。
 Non-maximum suppression（非极大抑制）
-import numpy as npdef nms(dets, thresh):    x1 = dets[:, 0]    y1 = de">
+import numpy as npdef nms(dets, thresh):    x1 = dets[:, 0]    y1 =">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object_detection_NMS">
 <meta property="og:url" content="http://yoursite.com/2017/03/19/Object_detection_NMS/index.html">
 <meta property="og:site_name" content="程起上的博客">
-<meta property="og:description" content="写在前面的话​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。
+<meta property="og:description" content="#写在前面的话
+​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。
 Non-maximum suppression（非极大抑制）
-import numpy as npdef nms(dets, thresh):    x1 = dets[:, 0]    y1 = de">
+import numpy as npdef nms(dets, thresh):    x1 = dets[:, 0]    y1 =">
 <meta property="og:image" content="http://yoursite.com/2017/03/19/Object_detection_NMS/NMS.png">
-<meta property="og:updated_time" content="2017-05-07T14:00:58.597Z">
+<meta property="og:updated_time" content="2018-03-02T07:16:50.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object_detection_NMS">
-<meta name="twitter:description" content="写在前面的话​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。
+<meta name="twitter:description" content="#写在前面的话
+​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。
 Non-maximum suppression（非极大抑制）
-import numpy as npdef nms(dets, thresh):    x1 = dets[:, 0]    y1 = de">
+import numpy as npdef nms(dets, thresh):    x1 = dets[:, 0]    y1 =">
 <meta name="twitter:image" content="http://yoursite.com/2017/03/19/Object_detection_NMS/NMS.png">
 
   
@@ -160,11 +163,6 @@ import numpy as npdef nms(dets, thresh):    x1 = dets[:, 0]    y1 = de">
 </div>
 
 
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面的话"><span class="toc-text">写在前面的话</span></a></li></ol>
-  </div>
-
 
 
 <div class="content content-post CENTER">
@@ -199,7 +197,8 @@ import numpy as npdef nms(dets, thresh):    x1 = dets[:, 0]    y1 = de">
 
   <div class="article-content">
     
-      <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。</p>
+      <p>#写在前面的话</p>
+<p>​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。</p>
 <p><strong>Non-maximum suppression（非极大抑制）</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">nms</span><span class="params">(dets, thresh)</span>:</span></div><div class="line">    x1 = dets[:, <span class="number">0</span>]</div><div class="line">    y1 = dets[:, <span class="number">1</span>]</div><div class="line">    x2 = dets[:, <span class="number">2</span>]</div><div class="line">    y2 = dets[:, <span class="number">3</span>]</div><div class="line">    scores = dets[:, <span class="number">4</span>]</div><div class="line"></div><div class="line">    areas = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>)</div><div class="line">    order = scores.argsort()[::<span class="number">-1</span>] <span class="comment"># 降序排序，返回索引</span></div><div class="line"></div><div class="line">    keep = []</div><div class="line">    <span class="keyword">while</span> order.size &gt; <span class="number">0</span>:</div><div class="line">        i = order[<span class="number">0</span>]</div><div class="line">        keep.append(i)</div><div class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="number">1</span>:]])<span class="comment">#比较x1[i]与x1[order[1:]]中每一个值返回最大值</span></div><div class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="number">1</span>:]])<span class="comment">#例子：</span></div><div class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="number">1</span>:]])<span class="comment">#np.minimum(2, [1, 3, 6])  返回:array([2, 3, 6])</span></div><div class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="number">1</span>:]])</div><div class="line"></div><div class="line">        w = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>)</div><div class="line">        h = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>)</div><div class="line">        inter = w * h</div><div class="line">        ovr = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter)</div><div class="line"></div><div class="line">        inds = np.where(ovr &lt;= thresh)[<span class="number">0</span>]</div><div class="line">        order = order[inds + <span class="number">1</span>]</div><div class="line"></div><div class="line">    <span class="keyword">return</span> keep</div></pre></td></tr></table></figure>
 <p>这段代码来自RBG大神。</p>
