@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python-Random]]></title>
+    <url>%2F2018%2F03%2F02%2Fpython-random%2F</url>
+    <content type="text"><![CDATA[最近在使用python的随机数，所以总结一下。 导入包​ import random 具体的函数 random.random() 随机生成一个0-1之间浮点数 random.uniform(a, b) 生成[a, b]之间的均匀分布的随机数 random.randint(a, b) 生成[a, b]之间的随机的整数 random.randrange(start, stop, step) 生成[start : step : stop]这个数列中的随机一个数。 特例：若step为偶数，start为偶数，则随机生成指定范围的偶数；若start为奇数，则生成指定范围内的奇数 random.choice(sequence) 从序列sequence中随机选择一个元素 random.shuffle(X) 打乱列表X的元素顺序 random.sample(X, k) 从列表X中随机选取K个数]]></content>
+      <tags>
+        <tag>python,  random</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F03%2F02%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post$ hexo new "My New Post" More info: Writing Run server$ hexo server More info: Server Generate static files$ hexo generate More info: Generating Deploy to remote sites$ hexo deploy 显示图片hexo中添加图片的方法1.设置站点配置_config.yml post_asset_folder: true 2.安装插件 npm install https://github.com/CodeFalling/hexo-asset-image -- save11 3 引用图片3.1 利用标签引用 1 &#123;% asset_path slug %&#125;2 &#123;% asset_img slug [title] %&#125;3 &#123;% asset_link slug [title] %&#125;123123 3.2 利用makdown ![例子](例子.png)11 More info: Deployment]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Caffe安装新坑]]></title>
     <url>%2F2017%2F12%2F06%2Fcaffe_install%2F</url>
     <content type="text"><![CDATA[#写在前面的话 今天教研室新进了两台双TITANX的机器。老板大人叫我测一下，机器跑网络的时候声音大不大。本来觉得简单得很，，，毕竟我已经是老手了。但是现实给了我一个小巴掌。。。啪啪作响。。 遇到三个问题。 问题一 更新源时出现 404 NotFound sudo apt-get update这句是常用的更新源的命令。但是嘞，这段时间出现了个怪现象， W: 无法下载 http://ppa.launchpad.net/fcitx-team/nightly/ubuntu/dists/jessie/main/binary-amd64/Packages 404 Not Found 出现了这个状况咋解决了？ #解决方案： 将对应的PPA删除掉即可 使用以下命令切换到对应PPA目录： cd /etc/apt/sources.list.d 找到上述无法下载的对应PPA目录，即extra-ppas.list，安全起见，用mv命令将该文件添加后缀.bak即可 这个时候就好了。 问题二 libopencv-dev的安装 安装opencv真的是个大坑。。。我先是用最基本的sudo apt-get install libopencv-dev来安装的。但是嘞，出现了个错误，就是说libatk无法安装。怎么弄都解决不了。 后来我安装了aptitude(sudo apt-get install aptitude) 然后利用aptitude 来安装libopencv-dev（sudo aptitude install libopencv-dev） 你还真别说。。。这么一变化，我还就安装成功了。。。。 问题三 libcudart.so.8.0这个问题最好解决。 `export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH export PATH=/usr/local/cuda-8.0/bin:$PATH` 你还别说，就这3个小问题。。。折腾了我一个下午。。。主要是如何解决问题二。]]></content>
@@ -43,19 +56,6 @@
     <content type="text"><![CDATA[就为了做个测试。]]></content>
       <tags>
         <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2017%2F03%2F21%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post$ hexo new "My New Post" More info: Writing Run server$ hexo server More info: Server Generate static files$ hexo generate More info: Generating Deploy to remote sites$ hexo deploy 显示图片hexo中添加图片的方法1.设置站点配置_config.yml post_asset_folder: true 2.安装插件 npm install https://github.com/CodeFalling/hexo-asset-image -- save11 3 引用图片3.1 利用标签引用 1 &#123;% asset_path slug %&#125;2 &#123;% asset_img slug [title] %&#125;3 &#123;% asset_link slug [title] %&#125;123123 3.2 利用makdown ![例子](例子.png)11 More info: Deployment]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Python-Random]]></title>
-    <url>%2F2017%2F03%2F21%2Fpython-random%2F</url>
-    <content type="text"><![CDATA[最近在使用python的随机数，所以总结一下。 导入包​ import random 具体的函数 random.random() 随机生成一个0-1之间浮点数 random.uniform(a, b) 生成[a, b]之间的均匀分布的随机数 random.randint(a, b) 生成[a, b]之间的随机的整数 random.randrange(start, stop, step) 生成[start : step : stop]这个数列中的随机一个数。 特例：若step为偶数，start为偶数，则随机生成指定范围的偶数；若start为奇数，则生成指定范围内的奇数 random.choice(sequence) 从序列sequence中随机选择一个元素 random.shuffle(X) 打乱列表X的元素顺序 random.sample(X, k) 从列表X中随机选取K个数]]></content>
-      <tags>
-        <tag>python,  random</tag>
       </tags>
   </entry>
   <entry>
