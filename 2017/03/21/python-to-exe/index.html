@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Python创建exe文件 | 程起上的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="python exe," />
+  
+
+  <meta name="description" content="写在前面的话这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。
+简介py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。
+py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python创建exe文件">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/python-to-exe/index.html">
+<meta property="og:site_name" content="程起上的博客">
+<meta property="og:description" content="写在前面的话这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。
+简介py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。
+py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win3">
+<meta property="og:image" content="http://yoursite.com/2017/03/21/python-to-exe/exe.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/21/python-to-exe/ruanjian.png">
+<meta property="og:updated_time" content="2017-03-22T06:12:52.245Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python创建exe文件">
+<meta name="twitter:description" content="写在前面的话这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。
+简介py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。
+py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win3">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/21/python-to-exe/exe.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面的话"><span class="toc-text">写在前面的话</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装py2exe"><span class="toc-text">安装py2exe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#py2exe的使用"><span class="toc-text">py2exe的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指定额外的文件"><span class="toc-text">指定额外的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows-NT-services"><span class="toc-text">Windows NT services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#COM-servers"><span class="toc-text">COM servers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reference"><span class="toc-text">reference</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-python-to-exe" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Python创建exe文件</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.03.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>chengqishang</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。</p>
+<p>py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win32com client server。和其他的独立程序。py2exe是发布在开源许可证下的。</p>
+<h2 id="安装py2exe"><a href="#安装py2exe" class="headerlink" title="安装py2exe"></a>安装py2exe</h2><p>从<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#imread" target="_blank" rel="external">网站</a>可以下载到py2exe‑0.6.10a1‑cp27‑none‑win_amd64.whl。然后可以使用pip install 安装。</p>
+<h2 id="py2exe的使用"><a href="#py2exe的使用" class="headerlink" title="py2exe的使用"></a>py2exe的使用</h2><p>假设我们有一个脚本：image_labeling.py的python脚本。现在打算将他们转化为exe文件。首先创建一个mysetup.py的脚本。如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment"># mysetup.py</span></div><div class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</div><div class="line"><span class="keyword">import</span> py2exe</div><div class="line">setup(console=[<span class="string">"image_labeling.py"</span>])</div></pre></td></tr></table></figure>
+<p>运行方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">python mysetup.py py2exe</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/21/python-to-exe/exe.png" alt="生成的文件"></p>
+<p><img src="/2017/03/21/python-to-exe/ruanjian.png" alt="软件界面V1"></p>
+<p>上面的命令执行后将产生一个名为dist的子目录，其中包含了myscript.exe, python24.dll, library.zip这些文件。<br>如果你的myscript.py脚本中用了已编译的C扩展模块，那么这些模块也会被拷贝在个子目录中，同样，所有的dll文件在运行时都是需要的，除了系统的dll文件。<br>dist子目录中的文件包含了你的程序所必须的东西，你应将这个子目录中的所有内容一起发布。</p>
+<p>默认情况下，py2exe在目录dist下创建以下这些必须的文件：<br>1、一个或多个exe文件。<br>2、python##.dll。<br>3、几个.pyd文件，它们是已编译的扩展名，它们是exe文件所需要的；加上其它的.dll文件，这些.dll是.pyd所需要的。<br>4、一个library.zip文件，它包含了已编译的纯的python模块如.pyc或.pyo<br>上面的mysetup.py创建了一个控制台的myscript.exe程序，如果你要创建一个图形用户界的程序，那么你只需要将mysetup.py中的console=[“myscript.py”]替换为windows=[“myscript.py”]既可。</p>
+<p>py2exe一次能够创建多个exe文件，你需要将这些脚本文件的列表传递给console或windows的关键字参数。如果你有几个相关联的脚本，那么这是很有用的。<br>运行下面个命令，将显示py2exe命令的所有命令行标记。<br><code>python mysetup.py py2exe --help</code></p>
+<h2 id="指定额外的文件"><a href="#指定额外的文件" class="headerlink" title="指定额外的文件"></a>指定额外的文件</h2><p>一些应用程序在运行时需要额外的文件，诸如配置文件、字体、位图。<br>如果在安装脚本中用data_files可选项指定了那些额外的文件，那么py2exe能将这些文件拷贝到dist子目录中。data_files应包含一个元组(target-dir, files)列表，其中的files是这些额外的文件的列表。<br>示例如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment"># mysetup.py</span></div><div class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</div><div class="line"><span class="keyword">import</span> glob</div><div class="line"><span class="keyword">import</span> py2exe</div><div class="line"></div><div class="line">setup(console=[<span class="string">"myscript.py"</span>],</div><div class="line">       data_files=[(<span class="string">"bitmaps"</span>,</div><div class="line">                    [<span class="string">"bm/large.gif"</span>, <span class="string">"bm/small.gif"</span>]),</div><div class="line">                   (<span class="string">"fonts"</span>,</div><div class="line">                    glob.glob(<span class="string">"fonts\\*.fnt"</span>))],</div></pre></td></tr></table></figure>
+<p>说明：data_files选项将创建一个子目录dist\bitmaps，其中包含两个.gif文件；一个子目录dist\fonts，其中包含了所有的.fnt文件。</p>
+<h2 id="Windows-NT-services"><a href="#Windows-NT-services" class="headerlink" title="Windows NT services"></a>Windows NT services</h2><p>你可以通过传递一个service关键字参数给setup函数来建造Windows NT services<br>,这个service参数的值必须是一个Python模块名(包含一service类)的列表。<br>示例如下：</p>
+<p><code>mysetup.py</code></p>
+<p><code>from distutils.core import setup</code><br><code>import py2exe</code></p>
+<p><code>setup(service=[&quot;MyService&quot;])</code><br>所建造的可执行的service是可以通过在其后跟一定的命令行参数标记来自行安装和卸载的。你可以通过在这个可执行的service(exe)后跟一-help参数来得到更多的帮助。</p>
+<h2 id="COM-servers"><a href="#COM-servers" class="headerlink" title="COM servers"></a>COM servers</h2><p>你可以通过传递一个com_server 关键字参数给setup函数来建造Windows NT services<br>,这个service参数的值必须是一个Python模块名(包含一个或多个COM server 类)的列表。<br>示例如下：</p>
+<p><code>mysetup.py</code></p>
+<p><code>from distutils.core import setup</code><br><code>import py2exe</code></p>
+<p><code>setup(com_server=[&quot;win32com.server.interp&quot;])</code><br>默认情况下，DLL和EXE servers被建造，你不需要它们的话你可以简单的删除它们。</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="http://www.cnblogs.com/rj81/p/5495191.html" target="_blank" rel="external">参考</a></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，chengqishang</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr_wechat.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/03/19/Object_detection_NMS/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/03/21/test/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

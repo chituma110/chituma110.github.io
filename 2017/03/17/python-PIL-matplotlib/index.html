@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>python_PIL_matplotlib | 程起上的博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="python, PIL, matplotlib," />
+  
+
+  <meta name="description" content="PILPIL的全称为Python Imaging Library, 是Python中的一个免费的图像处理模块。
+导入包from PIL import Image
+图片读取from PIL import Imageimg = Image.open(&apos;000001.jpg&apos;) # 返回一个Image图像对象print img#结果&amp;lt;PIL.JpegImagePlugin.JpegImageFil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python_PIL_matplotlib">
+<meta property="og:url" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/index.html">
+<meta property="og:site_name" content="程起上的博客">
+<meta property="og:description" content="PILPIL的全称为Python Imaging Library, 是Python中的一个免费的图像处理模块。
+导入包from PIL import Image
+图片读取from PIL import Imageimg = Image.open(&apos;000001.jpg&apos;) # 返回一个Image图像对象print img#结果&amp;lt;PIL.JpegImagePlugin.JpegImageFil">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/图片显示.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/灰度图.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/反向图.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/截取图.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/resize_rotated.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/img_hist.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/gray_change.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/hist_norm.png">
+<meta property="og:updated_time" content="2017-03-17T14:22:35.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python_PIL_matplotlib">
+<meta name="twitter:description" content="PILPIL的全称为Python Imaging Library, 是Python中的一个免费的图像处理模块。
+导入包from PIL import Image
+图片读取from PIL import Imageimg = Image.open(&apos;000001.jpg&apos;) # 返回一个Image图像对象print img#结果&amp;lt;PIL.JpegImagePlugin.JpegImageFil">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/图片显示.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PIL"><span class="toc-text">PIL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入包"><span class="toc-text">导入包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片读取"><span class="toc-text">图片读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像显示"><span class="toc-text">图像显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入包-1"><span class="toc-text">导入包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片显示结果"><span class="toc-text">图片显示结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片保存"><span class="toc-text">图片保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片转化为灰度图"><span class="toc-text">图片转化为灰度图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#灰度图片显示"><span class="toc-text">灰度图片显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Image对象和图像矩阵之间转换"><span class="toc-text">Image对象和图像矩阵之间转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入包-2"><span class="toc-text">导入包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Image对象转化成图像矩阵"><span class="toc-text">Image对象转化成图像矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像矩阵转化为Image对象"><span class="toc-text">图像矩阵转化为Image对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建缩略图"><span class="toc-text">创建缩略图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片截取"><span class="toc-text">图片截取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的尺寸调整和旋转"><span class="toc-text">图像的尺寸调整和旋转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像直方图"><span class="toc-text">图像直方图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像灰度变换"><span class="toc-text">图像灰度变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直方图均衡化"><span class="toc-text">直方图均衡化</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-python-PIL-matplotlib" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">python_PIL_matplotlib</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.03.17</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>chengqishang</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="PIL"><a href="#PIL" class="headerlink" title="PIL"></a>PIL</h1><p>PIL的全称为Python Imaging Library, 是Python中的一个免费的图像处理模块。</p>
+<h3 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h3><p><code>from PIL import Image</code></p>
+<h2 id="图片读取"><a href="#图片读取" class="headerlink" title="图片读取"></a>图片读取</h2><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"></div><div class="line">img = Image.open(<span class="string">'000001.jpg'</span>) <span class="comment"># 返回一个Image图像对象</span></div><div class="line"><span class="keyword">print</span> img</div><div class="line"></div><div class="line"><span class="comment">#结果</span></div><div class="line">&lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=<span class="number">353</span>x500 at <span class="number">0x2945A90</span>&gt;</div></pre></td></tr></table></figure>
+<h2 id="图像显示"><a href="#图像显示" class="headerlink" title="图像显示"></a>图像显示</h2><h3 id="导入包-1"><a href="#导入包-1" class="headerlink" title="导入包"></a>导入包</h3><p><code>import matplotlib.pyplot as plt</code></p>
+<p>代码段：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"></div><div class="line">fig, ax = plt.subplots(figsize=(<span class="number">5</span>, <span class="number">5</span>)) <span class="comment">#定义一个12*12 大小的画板</span></div><div class="line">ax.imshow(img) <span class="comment">#显示图片，此时图片还在内存中</span></div><div class="line">plt.axis(<span class="string">'off'</span>) <span class="comment">#消除横纵坐标</span></div><div class="line">ax.set_title(<span class="string">'000001.jpg'</span>)<span class="comment">#设置一个标题</span></div><div class="line">plt.show()<span class="comment">#显示图片，要不然没有办法显示</span></div></pre></td></tr></table></figure>
+<h3 id="图片显示结果"><a href="#图片显示结果" class="headerlink" title="图片显示结果"></a>图片显示结果</h3><p><img src="/2017/03/17/python-PIL-matplotlib/图片显示.png" alt="图片显示"></p>
+<h2 id="图片保存"><a href="#图片保存" class="headerlink" title="图片保存"></a>图片保存</h2><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">img = Image.open(<span class="string">'000001.jpg'</span>) <span class="comment"># 返回一个Image图像对象</span></div><div class="line">img_save = img.save(<span class="string">'000001_save.png'</span>)<span class="comment">#保存图片并且同时改变图片的格式</span></div></pre></td></tr></table></figure>
+<h2 id="图片转化为灰度图"><a href="#图片转化为灰度图" class="headerlink" title="图片转化为灰度图"></a>图片转化为灰度图</h2><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">img_save = img.save(<span class="string">'000001_save.png'</span>)</div><div class="line">img_gray = img.convert(<span class="string">"L"</span>)</div><div class="line"><span class="keyword">print</span> img_gray</div><div class="line"></div><div class="line"><span class="comment">#结果</span></div><div class="line">&lt;PIL.Image.Image image mode=L size=<span class="number">353</span>x500 at <span class="number">0x264F780</span>&gt;</div></pre></td></tr></table></figure>
+<h3 id="灰度图片显示"><a href="#灰度图片显示" class="headerlink" title="灰度图片显示"></a>灰度图片显示</h3><p><img src="/2017/03/17/python-PIL-matplotlib/灰度图.png" alt="灰度图片"></p>
+<h2 id="Image对象和图像矩阵之间转换"><a href="#Image对象和图像矩阵之间转换" class="headerlink" title="Image对象和图像矩阵之间转换"></a>Image对象和图像矩阵之间转换</h2><h3 id="导入包-2"><a href="#导入包-2" class="headerlink" title="导入包"></a>导入包</h3><p><code>import numpy as np</code></p>
+<h3 id="Image对象转化成图像矩阵"><a href="#Image对象转化成图像矩阵" class="headerlink" title="Image对象转化成图像矩阵"></a>Image对象转化成图像矩阵</h3><p>Image对象转化成图像矩阵只要将Image对象作为<code>numpy.array()</code>参数即可</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">img_array = np.array(img)</div><div class="line"><span class="keyword">print</span> img_array</div><div class="line"></div><div class="line"><span class="comment">#结果</span></div><div class="line">[[[  <span class="number">1</span>   <span class="number">1</span>   <span class="number">0</span>]</div><div class="line">  [  <span class="number">1</span>   <span class="number">1</span>   <span class="number">0</span>]</div><div class="line">  [  <span class="number">1</span>   <span class="number">1</span>   <span class="number">0</span>]</div><div class="line"> <span class="comment">#忽略</span></div><div class="line">  [ <span class="number">31</span>  <span class="number">60</span> <span class="number">116</span>]</div><div class="line">  [ <span class="number">32</span>  <span class="number">58</span> <span class="number">119</span>]</div><div class="line">  [ <span class="number">26</span>  <span class="number">50</span> <span class="number">120</span>]]]</div></pre></td></tr></table></figure>
+<h3 id="图像矩阵转化为Image对象"><a href="#图像矩阵转化为Image对象" class="headerlink" title="图像矩阵转化为Image对象"></a>图像矩阵转化为Image对象</h3><p>图像矩阵转化成Image对象通过<code>Image</code>模块的<code>fromarray()</code>方法。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">img = Image.open(<span class="string">'000001.jpg'</span>) <span class="comment"># 返回一个Image图像对象</span></div><div class="line">img_array = np.array(img)</div><div class="line"></div><div class="line">img_array = <span class="number">255</span> - img_array</div><div class="line">img_neg = Image.fromarray(img_array)</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/17/python-PIL-matplotlib/反向图.png" alt="将矩阵转化为Image对象"></p>
+<h2 id="创建缩略图"><a href="#创建缩略图" class="headerlink" title="创建缩略图"></a>创建缩略图</h2><p>创建图像缩略图可以通过Image的<code>thumbnail()</code>方法，参数传入一个元组，指明缩略图的大小，如<code>thumbnail((128,128))</code></p>
+<h2 id="图片截取"><a href="#图片截取" class="headerlink" title="图片截取"></a>图片截取</h2><p>截取图像中的一部分，并将这一部分作为一个新的Image对象。<br>截取区域的方法为<code>crop()</code>，参数为一个含4个元素的元组，用来指定截取区域的<strong>左上角点和右下角点</strong>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">img = Image.open(<span class="string">'000001.jpg'</span>) <span class="comment"># 返回一个Image图像对象</span></div><div class="line"></div><div class="line">box = (<span class="number">48</span>,<span class="number">240</span>,<span class="number">196</span>,<span class="number">372</span>)</div><div class="line">img_crop = img.crop(box)</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/17/python-PIL-matplotlib/截取图.png" alt="image_crop"></p>
+<h2 id="图像的尺寸调整和旋转"><a href="#图像的尺寸调整和旋转" class="headerlink" title="图像的尺寸调整和旋转"></a>图像的尺寸调整和旋转</h2><p>尺寸调整方法为<code>resize()</code>，参数为一元组，指定调整后的大小，如<code>resize((128,128))。 图像旋转的方法为</code>rotate()<code>，参数为旋转角度（数值，单位为度）,逆时针方向，如</code>rotate(45)`</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"></div><div class="line">img = Image.open(<span class="string">'000001.jpg'</span>) <span class="comment"># 返回一个Image图像对象</span></div><div class="line"></div><div class="line">image_resize = img.resize((<span class="number">200</span>,<span class="number">200</span>))</div><div class="line">image_rotate = img.rotate(<span class="number">45</span>)</div><div class="line"></div><div class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">1</span>,<span class="number">2</span>,figsize=(<span class="number">8</span>, <span class="number">8</span>)) <span class="comment">#定义一个12*12 大小的画板</span></div><div class="line"><span class="comment">#显示第一幅图片</span></div><div class="line">ax1.imshow(image_resize)</div><div class="line">ax1.axis(<span class="string">'off'</span>) <span class="comment">#消除横纵坐标</span></div><div class="line">ax1.set_title(<span class="string">'image_resize'</span>)<span class="comment">#设置一个标题</span></div><div class="line"><span class="comment">#显示第二幅图片</span></div><div class="line">ax2.imshow(image_rotate)</div><div class="line">ax2.axis(<span class="string">'off'</span>) <span class="comment">#消除横纵坐标</span></div><div class="line">ax2.set_title(<span class="string">'image_resize'</span>)<span class="comment">#设置一个标题</span></div><div class="line"></div><div class="line">plt.show()<span class="comment">#显示图片，要不然没有办法显示</span></div></pre></td></tr></table></figure>
+<p><img src="/2017/03/17/python-PIL-matplotlib/resize_rotated.png" alt="resize and rotate"></p>
+<h2 id="图像直方图"><a href="#图像直方图" class="headerlink" title="图像直方图"></a>图像直方图</h2><p>图像直方图用来统计图像中像素值的分布情况，即统计不同像素值出现的次数。方法为调用<code>matplotlib.pyplot</code>的<code>hist</code>方法，参数传入图像像素序列和统计区间个数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="comment"># 读入图片并转化为灰度图</span></div><div class="line">img = Image.open(<span class="string">'000001.jpg'</span>).convert(<span class="string">"L"</span>)</div><div class="line">image_array = np.array(img)</div><div class="line"><span class="comment">#画图</span></div><div class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</div><div class="line">plt.imshow(img,cmap=cm.gray)</div><div class="line">plt.axis(<span class="string">"off"</span>)</div><div class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</div><div class="line">plt.hist(image_array.flatten(), <span class="number">256</span>) <span class="comment">#flatten 可以将矩阵转化为一维序列</span></div><div class="line"></div><div class="line">plt.show()<span class="comment">#显示图片，要不然没有办法显示</span></div></pre></td></tr></table></figure>
+<p><img src="/2017/03/17/python-PIL-matplotlib/img_hist.png" alt="img_hist"></p>
+<h2 id="图像灰度变换"><a href="#图像灰度变换" class="headerlink" title="图像灰度变换"></a>图像灰度变换</h2><p>对于一张灰度图像，其每个像素点都用一个0-255之间的值表示，0表示黑色，越接近0越黑；255表示白色，越接近255越白。<br>灰度变换就是通过一个特定的函数，使灰度值从一个值转换成另外一个值。<br>这里列出3种灰度变换</p>
+<ol>
+<li><p>【反相】变换后的灰度值= 255−原灰度值</p>
+</li>
+<li><p>【转换到100-200】变换后的灰度值 =(原灰度值/255)*100+100</p>
+</li>
+<li><p>【像素平方】变换后的灰度值 = 255*(原灰度值/255)2</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="comment"># 读入图片并转化为灰度图</span></div><div class="line">img = Image.open(<span class="string">'000001.jpg'</span>).convert(<span class="string">"L"</span>)</div><div class="line">image_array = np.array(img)</div><div class="line"></div><div class="line">x = np.arange(<span class="number">255</span>)</div><div class="line"><span class="comment">#画图</span></div><div class="line"><span class="comment"># 反相</span></div><div class="line">plt.subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>)</div><div class="line">plt.plot(x,<span class="number">255</span>-x) <span class="comment"># 画出变换函数图像</span></div><div class="line">plt.subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>)</div><div class="line">plt.imshow(Image.fromarray(<span class="number">255</span>-image_array),cmap=cm.gray)</div><div class="line">plt.axis(<span class="string">"off"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 转换到 100-200</span></div><div class="line">plt.subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>)</div><div class="line">plt.plot(x,(x/<span class="number">255.0</span>)*<span class="number">100</span>+<span class="number">100</span>) <span class="comment"># 画出变换函数图像</span></div><div class="line">plt.subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>)</div><div class="line">plt.imshow( Image.fromarray((image_array/<span class="number">255.0</span>)*<span class="number">100</span>+<span class="number">100</span>), cmap=cm.gray )</div><div class="line">plt.axis(<span class="string">"off"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 像素平方</span></div><div class="line">plt.subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>)</div><div class="line">plt.plot(x,<span class="number">255</span>*(x/<span class="number">255.0</span>)**<span class="number">2</span>) <span class="comment"># 画出变换函数图像</span></div><div class="line">plt.subplot(<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>)</div><div class="line">plt.imshow( Image.fromarray(<span class="number">255</span>*(image_array/<span class="number">255.0</span>)**<span class="number">2</span>), cmap=cm.gray )</div><div class="line">plt.axis(<span class="string">"off"</span>)</div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/2017/03/17/python-PIL-matplotlib/gray_change.png" alt="gray_changed"></p>
+<h2 id="直方图均衡化"><a href="#直方图均衡化" class="headerlink" title="直方图均衡化"></a>直方图均衡化</h2><p>由上面图像的直方图可以看出，一般情况下，图像上某些灰度值较多，有些灰度值较少，直方图均衡化为的是使灰度值较为均衡。</p>
+<p>直方图均衡化是利用直方图的累积函数作为灰度变换函数，对图像进行转换。直方图均衡化可以增强图像的对比度。</p>
+<p>累积函数和概率论中的累积分布函数类似。例如对于还有5个数的序列[1,2,3,4,5],其累积函数含有5个数，第一个数是1，第二个是1+2=3，……，第五个数是1+2+3+4+5=15，所以其累积函数是[1,3,6,10,15]。</p>
+<p>我们把直方图均衡化的过程封装在一个函数里面，函数名字叫做histeq，输入原图像矩阵和直方图分块数，输出均衡化后的图像矩阵和累积函数。<img src="/2017/03/17/python-PIL-matplotlib/" alt=""></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">histeq</span><span class="params">(image_array, image_bins=<span class="number">256</span>)</span>:</span></div><div class="line">    <span class="comment"># 将图像矩阵转化成直方图数据，返回元组(频数，直方图区间坐标)</span></div><div class="line">    image_array2, bins = np.histogram(image_array.flatten(), image_bins)</div><div class="line"></div><div class="line">    <span class="comment"># 计算直方图的累积函数</span></div><div class="line">    cdf = image_array2.cumsum()</div><div class="line"></div><div class="line">    <span class="comment"># 将累积函数转化到区间[0,255]</span></div><div class="line">    cdf = (<span class="number">255.0</span> / cdf[<span class="number">-1</span>]) * cdf</div><div class="line"></div><div class="line">    <span class="comment"># 原图像矩阵利用累积函数进行转化，插值过程</span></div><div class="line">    image2_array = np.interp(image_array.flatten(), bins[:<span class="number">-1</span>], cdf)</div><div class="line"></div><div class="line">    <span class="comment"># 返回均衡化后的图像矩阵和累积函数</span></div><div class="line">    <span class="keyword">return</span> image2_array.reshape(image_array.shape), cdf</div><div class="line"></div><div class="line"><span class="comment"># 读入图片并转化为灰度图</span></div><div class="line">img = Image.open(<span class="string">'000001.jpg'</span>).convert(<span class="string">"L"</span>)</div><div class="line">image_array = np.array(img)</div><div class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</div><div class="line">plt.hist(image_array.flatten(),<span class="number">256</span>)</div><div class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</div><div class="line">plt.imshow(img,cmap=cm.gray)</div><div class="line">plt.axis(<span class="string">"off"</span>)</div><div class="line"></div><div class="line">a = histeq(image_array)  <span class="comment"># 利用刚定义的直方图均衡化函数对图像进行均衡化处理</span></div><div class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</div><div class="line">plt.hist(a[<span class="number">0</span>].flatten(),<span class="number">256</span>)</div><div class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</div><div class="line">plt.imshow(Image.fromarray(a[<span class="number">0</span>]),cmap=cm.gray)</div><div class="line">plt.axis(<span class="string">"off"</span>)</div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/17/python-PIL-matplotlib/hist_norm.png" alt="直方图均衡"></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，chengqishang</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr_wechat.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/03/15/python-parse-VOCxml-and-show/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/03/19/Genetic-Algorithms/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
