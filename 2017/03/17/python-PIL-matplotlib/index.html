@@ -1,20 +1,10 @@
 <!DOCTYPE html>
-
-
-  <html class="light page-post">
-
-
+<html>
 <head>
   <meta charset="utf-8">
   
   <title>python_PIL_matplotlib | 程起上的博客</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  
-    <meta name="keywords" content="python, PIL, matplotlib," />
-  
-
   <meta name="description" content="PILPIL的全称为Python Imaging Library, 是Python中的一个免费的图像处理模块。 导入包from PIL import Image 图片读取from PIL import Imageimg = Image.open(&apos;000001.jpg&apos;) # 返回一个Image图像对象print img#结果&amp;lt;PIL.JpegImagePlugin.JpegImageFil">
 <meta name="keywords" content="python, PIL, matplotlib">
 <meta property="og:type" content="article">
@@ -37,173 +27,83 @@
 <meta name="twitter:title" content="python_PIL_matplotlib">
 <meta name="twitter:description" content="PILPIL的全称为Python Imaging Library, 是Python中的一个免费的图像处理模块。 导入包from PIL import Image 图片读取from PIL import Imageimg = Image.open(&apos;000001.jpg&apos;) # 返回一个Image图像对象print img#结果&amp;lt;PIL.JpegImagePlugin.JpegImageFil">
 <meta name="twitter:image" content="http://yoursite.com/2017/03/17/python-PIL-matplotlib/图片显示.png">
-
+  
+    <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
   
 
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
-
-
-  
-    <link rel="stylesheet" href="/css/personal-style.css">
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
 </head>
 
 <body>
-
-
-  
-    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
-  
-
-  <div class="post-header CENTER">
-   
-  <div class="toolbox">
-    <a class="toolbox-entry" href="/">
-      <span class="toolbox-entry-text">盒子</span>
-      <i class="icon-angle-down"></i>
-      <i class="icon-home"></i>
-    </a>
-    <ul class="list-toolbox">
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">程起上的博客</a>
+      </h1>
       
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/archives/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            博客
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/category/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            分类
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/tags/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            标签
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/link/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            友链
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/about/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            关于
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
-            RSS
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/search/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  </div>
-
-
-</div>
-
-
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PIL"><span class="toc-text">PIL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入包"><span class="toc-text">导入包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片读取"><span class="toc-text">图片读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像显示"><span class="toc-text">图像显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入包-1"><span class="toc-text">导入包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片显示结果"><span class="toc-text">图片显示结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片保存"><span class="toc-text">图片保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片转化为灰度图"><span class="toc-text">图片转化为灰度图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#灰度图片显示"><span class="toc-text">灰度图片显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Image对象和图像矩阵之间转换"><span class="toc-text">Image对象和图像矩阵之间转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入包-2"><span class="toc-text">导入包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Image对象转化成图像矩阵"><span class="toc-text">Image对象转化成图像矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像矩阵转化为Image对象"><span class="toc-text">图像矩阵转化为Image对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建缩略图"><span class="toc-text">创建缩略图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片截取"><span class="toc-text">图片截取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像的尺寸调整和旋转"><span class="toc-text">图像的尺寸调整和旋转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像直方图"><span class="toc-text">图像直方图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像灰度变换"><span class="toc-text">图像灰度变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直方图均衡化"><span class="toc-text">直方图均衡化</span></a></li></ol></li></ol>
-  </div>
-
-
-
-<div class="content content-post CENTER">
-   <article id="post-python-PIL-matplotlib" class="article article-type-post" itemprop="blogPost">
-  <header class="article-header">
-    <h1 class="post-title">python_PIL_matplotlib</h1>
-
-    <div class="article-meta">
-      <span>
-        <i class="icon-calendar"></i>
-        <span>2017.03.17</span>
-      </span>
-
-      
-        <span class="article-author">
-          <i class="icon-user"></i>
-          <span>chengqishang</span>
-        </span>
-      
-
-      
-
-
-      
-
-      
-
-      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Goals determine what you are going to be</a>
+        </h2>
       
     </div>
-  </header>
-
-  <div class="article-content">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">about</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python-PIL-matplotlib" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/17/python-PIL-matplotlib/" class="article-date">
+  <time datetime="2017-03-17T07:36:17.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
     
-      <h1 id="PIL"><a href="#PIL" class="headerlink" title="PIL"></a>PIL</h1><p>PIL的全称为Python Imaging Library, 是Python中的一个免费的图像处理模块。</p>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python_PIL_matplotlib
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PIL"><a href="#PIL" class="headerlink" title="PIL"></a>PIL</h1><p>PIL的全称为Python Imaging Library, 是Python中的一个免费的图像处理模块。</p>
 <h3 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h3><p><code>from PIL import Image</code></p>
 <h2 id="图片读取"><a href="#图片读取" class="headerlink" title="图片读取"></a>图片读取</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">img = Image.open(<span class="string">'000001.jpg'</span>) <span class="comment"># 返回一个Image图像对象</span></span><br><span class="line"><span class="keyword">print</span> img</span><br><span class="line"></span><br><span class="line"><span class="comment">#结果</span></span><br><span class="line">&lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=<span class="number">353</span>x500 at <span class="number">0x2945A90</span>&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="图像显示"><a href="#图像显示" class="headerlink" title="图像显示"></a>图像显示</h2><h3 id="导入包-1"><a href="#导入包-1" class="headerlink" title="导入包"></a>导入包</h3><p><code>import matplotlib.pyplot as plt</code></p>
@@ -247,191 +147,140 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">histeq</span><span class="params">(image_array, image_bins=<span class="number">256</span>)</span>:</span></span><br><span class="line">    <span class="comment"># 将图像矩阵转化成直方图数据，返回元组(频数，直方图区间坐标)</span></span><br><span class="line">    image_array2, bins = np.histogram(image_array.flatten(), image_bins)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算直方图的累积函数</span></span><br><span class="line">    cdf = image_array2.cumsum()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将累积函数转化到区间[0,255]</span></span><br><span class="line">    cdf = (<span class="number">255.0</span> / cdf[<span class="number">-1</span>]) * cdf</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 原图像矩阵利用累积函数进行转化，插值过程</span></span><br><span class="line">    image2_array = np.interp(image_array.flatten(), bins[:<span class="number">-1</span>], cdf)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回均衡化后的图像矩阵和累积函数</span></span><br><span class="line">    <span class="keyword">return</span> image2_array.reshape(image_array.shape), cdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读入图片并转化为灰度图</span></span><br><span class="line">img = Image.open(<span class="string">'000001.jpg'</span>).convert(<span class="string">"L"</span>)</span><br><span class="line">image_array = np.array(img)</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">plt.hist(image_array.flatten(),<span class="number">256</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">plt.imshow(img,cmap=cm.gray)</span><br><span class="line">plt.axis(<span class="string">"off"</span>)</span><br><span class="line"></span><br><span class="line">a = histeq(image_array)  <span class="comment"># 利用刚定义的直方图均衡化函数对图像进行均衡化处理</span></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">plt.hist(a[<span class="number">0</span>].flatten(),<span class="number">256</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line">plt.imshow(Image.fromarray(a[<span class="number">0</span>]),cmap=cm.gray)</span><br><span class="line">plt.axis(<span class="string">"off"</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="/2017/03/17/python-PIL-matplotlib/hist_norm.png" alt="直方图均衡"></p>
 
-    
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/17/python-PIL-matplotlib/" data-id="cjluthjyk000gdsfllfo8ncas" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/python-PIL-matplotlib/">python, PIL, matplotlib</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/19/Genetic-Algorithms/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Genetic_Algorithms
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/15/python-parse-VOCxml-and-show/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python_parse_VOCxml_and_show</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-   
-  <div class="text-center donation">
-    <div class="inner-donation">
-      <span class="btn-donation">支持一下</span>
-      <div class="donation-body">
-        <div class="tip text-center">扫一扫，chengqishang</div>
-        <ul class="theme.donation.items.length">
-        
-          <li class="item">
-            <img src="/images/qr_wechat.jpg" alt="">
-          </li>
-        
-        </ul>
-      </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LSTM/">LSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python-LMDB/">Python, LMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/opencv-libatk/">opencv, libatk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-VOCxml/">python VOCxml</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-exe/">python exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-random/">python,  random</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-Algorithms/">python, Algorithms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-PIL-matplotlib/">python, PIL, matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-caffe/">python, caffe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-object-detection/">python, object_detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/卷积/">卷积</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
 
-   
-  <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/03/15/python-parse-VOCxml-and-show/">
-        <i class="icon icon-angle-left"></i>
-    </a>
-    <a class="show pull-right" href="/2017/03/19/Genetic-Algorithms/">
-        <i class="icon icon-angle-right"></i>
-    </a>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tag/CUDA/" style="font-size: 10px;">CUDA</a> <a href="/tag/LSTM/" style="font-size: 10px;">LSTM</a> <a href="/tag/Python/" style="font-size: 10px;">Python</a> <a href="/tag/Python-LMDB/" style="font-size: 10px;">Python, LMDB</a> <a href="/tag/opencv-libatk/" style="font-size: 10px;">opencv, libatk</a> <a href="/tag/python-VOCxml/" style="font-size: 10px;">python VOCxml</a> <a href="/tag/python-exe/" style="font-size: 10px;">python exe</a> <a href="/tag/python-random/" style="font-size: 10px;">python,  random</a> <a href="/tag/python-Algorithms/" style="font-size: 10px;">python, Algorithms</a> <a href="/tag/python-PIL-matplotlib/" style="font-size: 10px;">python, PIL, matplotlib</a> <a href="/tag/python-caffe/" style="font-size: 10px;">python, caffe</a> <a href="/tag/python-object-detection/" style="font-size: 10px;">python, object_detection</a> <a href="/tag/test/" style="font-size: 10px;">test</a> <a href="/tag/卷积/" style="font-size: 10px;">卷积</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
   </div>
 
 
-
-
-</div>
-
-
-  <a id="backTop" class="back-top">
-    <i class="icon-angle-up"></i>
-  </a>
-
-
-
-
-  <div class="modal" id="modal">
-  <span id="cover" class="cover hide"></span>
-  <div id="modal-dialog" class="modal-dialog hide-dialog">
-    <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
-    </div>
-    <hr>
-    <div class="modal-body">
-      <ul class="list-toolbox">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/archives/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              博客
-            </a>
+          <li>
+            <a href="/2018/05/17/python-random/">Python-Random</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/category/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              分类
-            </a>
+          <li>
+            <a href="/2018/05/17/hello-world/">Hello World</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/tags/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              标签
-            </a>
+          <li>
+            <a href="/2017/12/06/caffe_install/">Caffe安装新坑</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/link/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              友链
-            </a>
+          <li>
+            <a href="/2017/05/07/python-file-print/">Python_file_print</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/about/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              关于
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
-              RSS
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/search/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              搜索
-            </a>
+          <li>
+            <a href="/2017/03/28/caffe-solver小结/">Caffe_solver小结</a>
           </li>
         
       </ul>
-
     </div>
   </div>
-</div>
-
-
 
   
-      <div class="fexo-comments comments-post">
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 chengqishang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">about</a>
+  
+</nav>
     
 
-    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-    
+<script src="/js/script.js"></script>
 
   </div>
-
-  
-
-  <script type="text/javascript">
-  function loadScript(url, callback) {
-    var script = document.createElement('script')
-    script.type = 'text/javascript';
-
-    if (script.readyState) { //IE
-      script.onreadystatechange = function() {
-        if (script.readyState == 'loaded' ||
-          script.readyState == 'complete') {
-          script.onreadystatechange = null;
-          callback();
-        }
-      };
-    } else { //Others
-      script.onload = function() {
-        callback();
-      };
-    }
-
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-
-  window.onload = function() {
-    loadScript('/js/bundle.js?235683', function() {
-      // load success
-    });
-  }
-</script>
-
 </body>
 </html>

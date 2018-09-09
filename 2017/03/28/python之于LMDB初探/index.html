@@ -1,20 +1,10 @@
 <!DOCTYPE html>
-
-
-  <html class="light page-post">
-
-
+<html>
 <head>
   <meta charset="utf-8">
   
   <title>python之于LMDB初探 | 程起上的博客</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  
-    <meta name="keywords" content="Python, LMDB," />
-  
-
   <meta name="description" content="写在前面的话这几天做老板的项目，因为大家的数据集简直脏的要我命，我将数据按照SSD的creat_data.sh的方式做成LMDB，然后在处理的时候每次到达一定的迭代次数，就会出现img_channel为1。但是mean_value的channel是3.这就尴尬了啊。。。我完全不知道是哪张图片，而且可想而知，有一张就不可能仅仅就只有一张。。。所以我就想办法处理掉这些错误的图片。于是在处理这个错误的时">
 <meta name="keywords" content="Python, LMDB">
 <meta property="og:type" content="article">
@@ -27,173 +17,83 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python之于LMDB初探">
 <meta name="twitter:description" content="写在前面的话这几天做老板的项目，因为大家的数据集简直脏的要我命，我将数据按照SSD的creat_data.sh的方式做成LMDB，然后在处理的时候每次到达一定的迭代次数，就会出现img_channel为1。但是mean_value的channel是3.这就尴尬了啊。。。我完全不知道是哪张图片，而且可想而知，有一张就不可能仅仅就只有一张。。。所以我就想办法处理掉这些错误的图片。于是在处理这个错误的时">
-
+  
+    <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
   
 
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
-
-
-  
-    <link rel="stylesheet" href="/css/personal-style.css">
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
 </head>
 
 <body>
-
-
-  
-    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
-  
-
-  <div class="post-header CENTER">
-   
-  <div class="toolbox">
-    <a class="toolbox-entry" href="/">
-      <span class="toolbox-entry-text">盒子</span>
-      <i class="icon-angle-down"></i>
-      <i class="icon-home"></i>
-    </a>
-    <ul class="list-toolbox">
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">程起上的博客</a>
+      </h1>
       
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/archives/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            博客
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/category/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            分类
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/tags/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            标签
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/link/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            友链
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/about/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            关于
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
-            RSS
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/search/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  </div>
-
-
-</div>
-
-
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面的话"><span class="toc-text">写在前面的话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#写在后面的话"><span class="toc-text">写在后面的话</span></a></li></ol>
-  </div>
-
-
-
-<div class="content content-post CENTER">
-   <article id="post-python之于LMDB初探" class="article article-type-post" itemprop="blogPost">
-  <header class="article-header">
-    <h1 class="post-title">python之于LMDB初探</h1>
-
-    <div class="article-meta">
-      <span>
-        <i class="icon-calendar"></i>
-        <span>2017.03.28</span>
-      </span>
-
-      
-        <span class="article-author">
-          <i class="icon-user"></i>
-          <span>chengqishang</span>
-        </span>
-      
-
-      
-
-
-      
-
-      
-
-      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Goals determine what you are going to be</a>
+        </h2>
       
     </div>
-  </header>
-
-  <div class="article-content">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">about</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python之于LMDB初探" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/python之于LMDB初探/" class="article-date">
+  <time datetime="2017-03-28T05:07:29.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
     
-      <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这几天做老板的项目，因为大家的数据集简直脏的要我命，我将数据按照SSD的creat_data.sh的方式做成LMDB，然后在处理的时候每次到达一定的迭代次数，就会出现img_channel为1。但是mean_value的channel是3.这就尴尬了啊。。。我完全不知道是哪张图片，而且可想而知，有一张就不可能仅仅就只有一张。。。所以我就想办法处理掉这些错误的图片。于是在处理这个错误的时候我就想将LMDB中数据给一一读出来。于是就有了下面的内容。</p>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python之于LMDB初探
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这几天做老板的项目，因为大家的数据集简直脏的要我命，我将数据按照SSD的creat_data.sh的方式做成LMDB，然后在处理的时候每次到达一定的迭代次数，就会出现img_channel为1。但是mean_value的channel是3.这就尴尬了啊。。。我完全不知道是哪张图片，而且可想而知，有一张就不可能仅仅就只有一张。。。所以我就想办法处理掉这些错误的图片。于是在处理这个错误的时候我就想将LMDB中数据给一一读出来。于是就有了下面的内容。</p>
 <p><strong>直接放代码</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.insert(<span class="number">0</span>, <span class="string">"/home/caffe-master/python"</span>)<span class="comment">#将caffepython的加入python路径中，0：是放在PYTHONPATH中的位置,后面就是caffepython的路径。</span></span><br><span class="line"><span class="keyword">import</span> caffe<span class="comment">#上面一句话就是为了这一句不出错</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> lmdb</span><br><span class="line"><span class="keyword">import</span> argparse<span class="comment">#做输入的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    parse = argparse.ArgumentParser()<span class="comment">#创建命令行对象</span></span><br><span class="line">    paese.add_argument(<span class="string">'--lmdbpath'</span>)<span class="comment">#添加一个命令</span></span><br><span class="line">    args = parse.parse_args()<span class="comment">#解析命令行</span></span><br><span class="line">    </span><br><span class="line">    env = lmdb.open(args.lmdbpath, readonly=<span class="keyword">True</span>)<span class="comment">#打开LMDB文件，只读。</span></span><br><span class="line">    <span class="keyword">with</span> env.begin() <span class="keyword">as</span> txn:</span><br><span class="line">        cursor = txn.cursor() <span class="comment">#A</span></span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> cursor:</span><br><span class="line">            <span class="comment">#print(key, len(value))#value是string类型</span></span><br><span class="line">            <span class="keyword">print</span> <span class="string">'key: '</span>,key</span><br><span class="line">            datum = caffe.proto.caffe_pb2.Datum()<span class="comment">#datum类型 #B</span></span><br><span class="line">            datum.ParseFromString(value)<span class="comment">#转化为datum</span></span><br><span class="line">            flat_x = np.fromstring(datum.data, dtype=np.uint8)<span class="comment">#转化为numpy类型 #C</span></span><br></pre></td></tr></table></figure>
 <p><strong>结果：</strong></p>
@@ -205,191 +105,140 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> dir(flat_x)</span><br><span class="line">[<span class="string">'T'</span>, <span class="string">'__abs__'</span>, <span class="string">'__add__'</span>, <span class="string">'__and__'</span>, <span class="string">'__array__'</span>, <span class="string">'__array_finalize__'</span>, <span class="string">'__array_interface__'</span>, <span class="string">'__array_prepare__'</span>, <span class="string">'__array_priority__'</span>, <span class="string">'__array_struct__'</span>, <span class="string">'__array_wrap__'</span>, <span class="string">'__class__'</span>, <span class="string">'__contains__'</span>, <span class="string">'__copy__'</span>, <span class="string">'__deepcopy__'</span>, <span class="string">'__delattr__'</span>, <span class="string">'__delitem__'</span>, <span class="string">'__delslice__'</span>, <span class="string">'__div__'</span>, <span class="string">'__divmod__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__eq__'</span>, <span class="string">'__float__'</span>, <span class="string">'__floordiv__'</span>, <span class="string">'__format__'</span>, <span class="string">'__ge__'</span>, <span class="string">'__getattribute__'</span>, <span class="string">'__getitem__'</span>, <span class="string">'__getslice__'</span>, <span class="string">'__gt__'</span>, <span class="string">'__hash__'</span>, <span class="string">'__hex__'</span>, <span class="string">'__iadd__'</span>, <span class="string">'__iand__'</span>, <span class="string">'__idiv__'</span>, <span class="string">'__ifloordiv__'</span>, <span class="string">'__ilshift__'</span>, <span class="string">'__imod__'</span>, <span class="string">'__imul__'</span>, <span class="string">'__index__'</span>, <span class="string">'__init__'</span>, <span class="string">'__int__'</span>, <span class="string">'__invert__'</span>, <span class="string">'__ior__'</span>, <span class="string">'__ipow__'</span>, <span class="string">'__irshift__'</span>, <span class="string">'__isub__'</span>, <span class="string">'__iter__'</span>, <span class="string">'__itruediv__'</span>, <span class="string">'__ixor__'</span>, <span class="string">'__le__'</span>, <span class="string">'__len__'</span>, <span class="string">'__long__'</span>, <span class="string">'__lshift__'</span>, <span class="string">'__lt__'</span>, <span class="string">'__mod__'</span>, <span class="string">'__mul__'</span>, <span class="string">'__ne__'</span>, <span class="string">'__neg__'</span>, <span class="string">'__new__'</span>, <span class="string">'__nonzero__'</span>, <span class="string">'__oct__'</span>, <span class="string">'__or__'</span>, <span class="string">'__pos__'</span>, <span class="string">'__pow__'</span>, <span class="string">'__radd__'</span>, <span class="string">'__rand__'</span>, <span class="string">'__rdiv__'</span>, <span class="string">'__rdivmod__'</span>, <span class="string">'__reduce__'</span>, <span class="string">'__reduce_ex__'</span>, <span class="string">'__repr__'</span>, <span class="string">'__rfloordiv__'</span>, <span class="string">'__rlshift__'</span>, <span class="string">'__rmod__'</span>, <span class="string">'__rmul__'</span>, <span class="string">'__ror__'</span>, <span class="string">'__rpow__'</span>, <span class="string">'__rrshift__'</span>, <span class="string">'__rshift__'</span>, <span class="string">'__rsub__'</span>, <span class="string">'__rtruediv__'</span>, <span class="string">'__rxor__'</span>, <span class="string">'__setattr__'</span>, <span class="string">'__setitem__'</span>, <span class="string">'__setslice__'</span>, <span class="string">'__setstate__'</span>, <span class="string">'__sizeof__'</span>, <span class="string">'__str__'</span>, <span class="string">'__sub__'</span>, <span class="string">'__subclasshook__'</span>, <span class="string">'__truediv__'</span>, <span class="string">'__xor__'</span>, <span class="string">'all'</span>, <span class="string">'any'</span>, <span class="string">'argmax'</span>, <span class="string">'argmin'</span>, <span class="string">'argpartition'</span>, <span class="string">'argsort'</span>, <span class="string">'astype'</span>, <span class="string">'base'</span>, <span class="string">'byteswap'</span>, <span class="string">'choose'</span>, <span class="string">'clip'</span>, <span class="string">'compress'</span>, <span class="string">'conj'</span>, <span class="string">'conjugate'</span>, <span class="string">'copy'</span>, <span class="string">'ctypes'</span>, <span class="string">'cumprod'</span>, <span class="string">'cumsum'</span>, <span class="string">'data'</span>, <span class="string">'diagonal'</span>, <span class="string">'dot'</span>, <span class="string">'dtype'</span>, <span class="string">'dump'</span>, <span class="string">'dumps'</span>, <span class="string">'fill'</span>, <span class="string">'flags'</span>, <span class="string">'flat'</span>, <span class="string">'flatten'</span>, <span class="string">'getfield'</span>, <span class="string">'imag'</span>, <span class="string">'item'</span>, <span class="string">'itemset'</span>, <span class="string">'itemsize'</span>, <span class="string">'max'</span>, <span class="string">'mean'</span>, <span class="string">'min'</span>, <span class="string">'nbytes'</span>, <span class="string">'ndim'</span>, <span class="string">'newbyteorder'</span>, <span class="string">'nonzero'</span>, <span class="string">'partition'</span>, <span class="string">'prod'</span>, <span class="string">'ptp'</span>, <span class="string">'put'</span>, <span class="string">'ravel'</span>, <span class="string">'real'</span>, <span class="string">'repeat'</span>, <span class="string">'reshape'</span>, <span class="string">'resize'</span>, <span class="string">'round'</span>, <span class="string">'searchsorted'</span>, <span class="string">'setfield'</span>, <span class="string">'setflags'</span>, <span class="string">'shape'</span>, <span class="string">'size'</span>, <span class="string">'sort'</span>, <span class="string">'squeeze'</span>, <span class="string">'std'</span>, <span class="string">'strides'</span>, <span class="string">'sum'</span>, <span class="string">'swapaxes'</span>, <span class="string">'take'</span>, <span class="string">'tobytes'</span>, <span class="string">'tofile'</span>, <span class="string">'tolist'</span>, <span class="string">'tostring'</span>, <span class="string">'trace'</span>, <span class="string">'transpose'</span>, <span class="string">'var'</span>, <span class="string">'view'</span>]</span><br></pre></td></tr></table></figure>
 <h1 id="写在后面的话"><a href="#写在后面的话" class="headerlink" title="写在后面的话"></a>写在后面的话</h1><p>在这一次我只查看了datum的channels性质。但是后来我发现所有的datum的channels都是0(ssd在创建LMDB的时候有一个encode选项，，后来我查看了ImageNet的LMDB的channels确实是3).。。。。这就尴尬了。。。还是没有办法解决问题。后来我将batchsize调整为1，每迭代一次就打印出结果，，这样。。。找到了对应的错误图片，然后我将对应的人的所有图片全部删除了。现在搞定了。。。</p>
 
-    
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/python之于LMDB初探/" data-id="cjluthjyr000qdsflt1vlvy4y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/Python-LMDB/">Python, LMDB</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/caffe-solver小结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Caffe_solver小结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/22/Python写caffe层/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python写caffe层</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-   
-  <div class="text-center donation">
-    <div class="inner-donation">
-      <span class="btn-donation">支持一下</span>
-      <div class="donation-body">
-        <div class="tip text-center">扫一扫，chengqishang</div>
-        <ul class="theme.donation.items.length">
-        
-          <li class="item">
-            <img src="/images/qr_wechat.jpg" alt="">
-          </li>
-        
-        </ul>
-      </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LSTM/">LSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python-LMDB/">Python, LMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/opencv-libatk/">opencv, libatk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-VOCxml/">python VOCxml</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-exe/">python exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-random/">python,  random</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-Algorithms/">python, Algorithms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-PIL-matplotlib/">python, PIL, matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-caffe/">python, caffe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-object-detection/">python, object_detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/卷积/">卷积</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
 
-   
-  <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/03/22/Python写caffe层/">
-        <i class="icon icon-angle-left"></i>
-    </a>
-    <a class="show pull-right" href="/2017/03/28/caffe-solver小结/">
-        <i class="icon icon-angle-right"></i>
-    </a>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tag/CUDA/" style="font-size: 10px;">CUDA</a> <a href="/tag/LSTM/" style="font-size: 10px;">LSTM</a> <a href="/tag/Python/" style="font-size: 10px;">Python</a> <a href="/tag/Python-LMDB/" style="font-size: 10px;">Python, LMDB</a> <a href="/tag/opencv-libatk/" style="font-size: 10px;">opencv, libatk</a> <a href="/tag/python-VOCxml/" style="font-size: 10px;">python VOCxml</a> <a href="/tag/python-exe/" style="font-size: 10px;">python exe</a> <a href="/tag/python-random/" style="font-size: 10px;">python,  random</a> <a href="/tag/python-Algorithms/" style="font-size: 10px;">python, Algorithms</a> <a href="/tag/python-PIL-matplotlib/" style="font-size: 10px;">python, PIL, matplotlib</a> <a href="/tag/python-caffe/" style="font-size: 10px;">python, caffe</a> <a href="/tag/python-object-detection/" style="font-size: 10px;">python, object_detection</a> <a href="/tag/test/" style="font-size: 10px;">test</a> <a href="/tag/卷积/" style="font-size: 10px;">卷积</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
   </div>
 
 
-
-
-</div>
-
-
-  <a id="backTop" class="back-top">
-    <i class="icon-angle-up"></i>
-  </a>
-
-
-
-
-  <div class="modal" id="modal">
-  <span id="cover" class="cover hide"></span>
-  <div id="modal-dialog" class="modal-dialog hide-dialog">
-    <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
-    </div>
-    <hr>
-    <div class="modal-body">
-      <ul class="list-toolbox">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/archives/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              博客
-            </a>
+          <li>
+            <a href="/2018/05/17/python-random/">Python-Random</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/category/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              分类
-            </a>
+          <li>
+            <a href="/2018/05/17/hello-world/">Hello World</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/tags/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              标签
-            </a>
+          <li>
+            <a href="/2017/12/06/caffe_install/">Caffe安装新坑</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/link/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              友链
-            </a>
+          <li>
+            <a href="/2017/05/07/python-file-print/">Python_file_print</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/about/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              关于
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
-              RSS
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/search/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              搜索
-            </a>
+          <li>
+            <a href="/2017/03/28/caffe-solver小结/">Caffe_solver小结</a>
           </li>
         
       </ul>
-
     </div>
   </div>
-</div>
-
-
 
   
-      <div class="fexo-comments comments-post">
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 chengqishang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">about</a>
+  
+</nav>
     
 
-    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-    
+<script src="/js/script.js"></script>
 
   </div>
-
-  
-
-  <script type="text/javascript">
-  function loadScript(url, callback) {
-    var script = document.createElement('script')
-    script.type = 'text/javascript';
-
-    if (script.readyState) { //IE
-      script.onreadystatechange = function() {
-        if (script.readyState == 'loaded' ||
-          script.readyState == 'complete') {
-          script.onreadystatechange = null;
-          callback();
-        }
-      };
-    } else { //Others
-      script.onload = function() {
-        callback();
-      };
-    }
-
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-
-  window.onload = function() {
-    loadScript('/js/bundle.js?235683', function() {
-      // load success
-    });
-  }
-</script>
-
 </body>
 </html>

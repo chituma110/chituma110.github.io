@@ -1,20 +1,10 @@
 <!DOCTYPE html>
-
-
-  <html class="light page-post">
-
-
+<html>
 <head>
   <meta charset="utf-8">
   
   <title>Python写caffe层 | 程起上的博客</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  
-    <meta name="keywords" content="python, caffe," />
-  
-
   <meta name="description" content="写在前面的话因为工作需要，需要用Python写新层，正好也看过这方面的工作。今天就来小小的记录一下，以免自己忘记了。 Python写层最多的是看到些数据层。所以我们今天就写一个数据层的例子。我们一共分3步走。 步奏一：写新层​     #！-*- coding: utf-8 -*-#author = Cqs#FileName: MyPythonLayer.py  #1import caffeimp">
 <meta name="keywords" content="python, caffe">
 <meta property="og:type" content="article">
@@ -29,173 +19,83 @@
 <meta name="twitter:title" content="Python写caffe层">
 <meta name="twitter:description" content="写在前面的话因为工作需要，需要用Python写新层，正好也看过这方面的工作。今天就来小小的记录一下，以免自己忘记了。 Python写层最多的是看到些数据层。所以我们今天就写一个数据层的例子。我们一共分3步走。 步奏一：写新层​     #！-*- coding: utf-8 -*-#author = Cqs#FileName: MyPythonLayer.py  #1import caffeimp">
 <meta name="twitter:image" content="http://yoursite.com/2017/03/22/Python写caffe层/net.png">
-
+  
+    <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
   
 
-  
-    <link rel="icon" href="/favicon.ico">
-  
-
-  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
-
-
-  
-    <link rel="stylesheet" href="/css/personal-style.css">
-  
-
-  
-
-  
-
-  
-
-
-  
-
-  
 </head>
 
 <body>
-
-
-  
-    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
-  
-
-  <div class="post-header CENTER">
-   
-  <div class="toolbox">
-    <a class="toolbox-entry" href="/">
-      <span class="toolbox-entry-text">盒子</span>
-      <i class="icon-angle-down"></i>
-      <i class="icon-home"></i>
-    </a>
-    <ul class="list-toolbox">
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">程起上的博客</a>
+      </h1>
       
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/archives/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            博客
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/category/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            分类
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/tags/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            标签
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/link/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            友链
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/about/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            关于
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
-            RSS
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/search/"
-            rel="noopener noreferrer"
-            target="_self"
-            >
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  </div>
-
-
-</div>
-
-
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面的话"><span class="toc-text">写在前面的话</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步奏一：写新层"><span class="toc-text">步奏一：写新层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤二：生成prototxt"><span class="toc-text">步骤二：生成prototxt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步奏三：调用运行"><span class="toc-text">步奏三：调用运行</span></a></li></ol></li></ol>
-  </div>
-
-
-
-<div class="content content-post CENTER">
-   <article id="post-Python写caffe层" class="article article-type-post" itemprop="blogPost">
-  <header class="article-header">
-    <h1 class="post-title">Python写caffe层</h1>
-
-    <div class="article-meta">
-      <span>
-        <i class="icon-calendar"></i>
-        <span>2017.03.22</span>
-      </span>
-
-      
-        <span class="article-author">
-          <i class="icon-user"></i>
-          <span>chengqishang</span>
-        </span>
-      
-
-      
-
-
-      
-
-      
-
-      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Goals determine what you are going to be</a>
+        </h2>
       
     </div>
-  </header>
-
-  <div class="article-content">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">about</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Python写caffe层" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/22/Python写caffe层/" class="article-date">
+  <time datetime="2017-03-22T02:08:22.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
     
-      <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>因为工作需要，需要用Python写新层，正好也看过这方面的工作。今天就来小小的记录一下，以免自己忘记了。</p>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python写caffe层
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>因为工作需要，需要用Python写新层，正好也看过这方面的工作。今天就来小小的记录一下，以免自己忘记了。</p>
 <p>Python写层最多的是看到些数据层。所以我们今天就写一个数据层的例子。我们一共分3步走。</p>
 <h2 id="步奏一：写新层"><a href="#步奏一：写新层" class="headerlink" title="步奏一：写新层"></a>步奏一：写新层</h2><p>​    </p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#！-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#author = Cqs</span></span><br><span class="line"><span class="comment">#FileName: MyPythonLayer.py  #1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> caffe</span><br><span class="line"><span class="keyword">import</span> yaml, glob</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> shuffle</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myPythonLayer</span><span class="params">(caffe.Layer)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    reshape images</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setup</span><span class="params">(self, bottom, top)</span>:</span></span><br><span class="line">        params_str = self.param_str.split(<span class="string">','</span>)</span><br><span class="line">        params = [yaml.load(item) <span class="keyword">for</span> item <span class="keyword">in</span> params_str] <span class="comment">#2</span></span><br><span class="line">        <span class="keyword">print</span> params</span><br><span class="line">        self.source = params[<span class="number">0</span>][<span class="string">'source_dir'</span>]</span><br><span class="line">        self.target_size = params[<span class="number">1</span>][<span class="string">'target_size'</span>]</span><br><span class="line">        self.batch_size = params[<span class="number">2</span>][<span class="string">'batch_size'</span>]<span class="comment">#3</span></span><br><span class="line">        self.batch_loader = BatchLoader(source_dir=self.source, target_size=self.target_size)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Parameter batch_size:&#123;&#125;\n'</span> \</span><br><span class="line">              <span class="string">'source_dir:&#123;&#125;\n'</span> \</span><br><span class="line">              <span class="string">'target_size:&#123;&#125;'</span>.format(self.batch_size, self.source, self.target_size)</span><br><span class="line">        top[<span class="number">0</span>].reshape(self.batch_size, self.target_size, self.target_size, <span class="number">3</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reshape</span><span class="params">(self, bottom, top)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, bottom, top)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> xrange(self.batch_size):</span><br><span class="line">            top[<span class="number">0</span>].data[i, ...] = self.batch_loader.next_batch()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(self, bottom, propagate_down, top)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BatchLoader</span><span class="params">(object)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, source_dir, target_size)</span>:</span></span><br><span class="line">    self.cur = <span class="number">0</span></span><br><span class="line">    self.target_size = target_size</span><br><span class="line">    self.indexlist = glob.glob(source_dir+ <span class="string">'/*.jpg'</span>)<span class="comment">#4</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next_batch</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.cur == len(self.indexlist):</span><br><span class="line">            self.cur = <span class="number">0</span></span><br><span class="line">            shuffle(self.indexlist)</span><br><span class="line">        item = self.indexlist[self.cur]</span><br><span class="line">        img_tmp = cv2.imread(item)</span><br><span class="line">        img_tmp = cv2.resize(src=img_tmp, dsize=(self.target_size, self.target_size))</span><br><span class="line">        self.cur += <span class="number">1</span></span><br><span class="line">        logging.info(<span class="string">'load &#123;&#125; images'</span>.format(self.cur))</span><br><span class="line">        <span class="keyword">return</span> img_tmp</span><br></pre></td></tr></table></figure>
@@ -241,191 +141,140 @@
 <p><a href="http://pyyaml.org/wiki/PyYAMLDocumentation" target="_blank" rel="noopener">参考三</a></p>
 <p><a href="http://blog.xiayf.cn/2013/01/26/python-string-format/" target="_blank" rel="noopener">参考四</a></p>
 
-    
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/22/Python写caffe层/" data-id="cjluthjy90006dsfltb91gaol" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tag/python-caffe/">python, caffe</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/python之于LMDB初探/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python之于LMDB初探
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Test</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-   
-  <div class="text-center donation">
-    <div class="inner-donation">
-      <span class="btn-donation">支持一下</span>
-      <div class="donation-body">
-        <div class="tip text-center">扫一扫，chengqishang</div>
-        <ul class="theme.donation.items.length">
-        
-          <li class="item">
-            <img src="/images/qr_wechat.jpg" alt="">
-          </li>
-        
-        </ul>
-      </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tag/CUDA/">CUDA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/LSTM/">LSTM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/Python-LMDB/">Python, LMDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/opencv-libatk/">opencv, libatk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-VOCxml/">python VOCxml</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-exe/">python exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-random/">python,  random</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-Algorithms/">python, Algorithms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-PIL-matplotlib/">python, PIL, matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-caffe/">python, caffe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/python-object-detection/">python, object_detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tag/卷积/">卷积</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
 
-   
-  <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/03/21/test/">
-        <i class="icon icon-angle-left"></i>
-    </a>
-    <a class="show pull-right" href="/2017/03/28/python之于LMDB初探/">
-        <i class="icon icon-angle-right"></i>
-    </a>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tag/CUDA/" style="font-size: 10px;">CUDA</a> <a href="/tag/LSTM/" style="font-size: 10px;">LSTM</a> <a href="/tag/Python/" style="font-size: 10px;">Python</a> <a href="/tag/Python-LMDB/" style="font-size: 10px;">Python, LMDB</a> <a href="/tag/opencv-libatk/" style="font-size: 10px;">opencv, libatk</a> <a href="/tag/python-VOCxml/" style="font-size: 10px;">python VOCxml</a> <a href="/tag/python-exe/" style="font-size: 10px;">python exe</a> <a href="/tag/python-random/" style="font-size: 10px;">python,  random</a> <a href="/tag/python-Algorithms/" style="font-size: 10px;">python, Algorithms</a> <a href="/tag/python-PIL-matplotlib/" style="font-size: 10px;">python, PIL, matplotlib</a> <a href="/tag/python-caffe/" style="font-size: 10px;">python, caffe</a> <a href="/tag/python-object-detection/" style="font-size: 10px;">python, object_detection</a> <a href="/tag/test/" style="font-size: 10px;">test</a> <a href="/tag/卷积/" style="font-size: 10px;">卷积</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
   </div>
 
 
-
-
-</div>
-
-
-  <a id="backTop" class="back-top">
-    <i class="icon-angle-up"></i>
-  </a>
-
-
-
-
-  <div class="modal" id="modal">
-  <span id="cover" class="cover hide"></span>
-  <div id="modal-dialog" class="modal-dialog hide-dialog">
-    <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
-    </div>
-    <hr>
-    <div class="modal-body">
-      <ul class="list-toolbox">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/archives/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              博客
-            </a>
+          <li>
+            <a href="/2018/05/17/python-random/">Python-Random</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/category/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              分类
-            </a>
+          <li>
+            <a href="/2018/05/17/hello-world/">Hello World</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/tags/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              标签
-            </a>
+          <li>
+            <a href="/2017/12/06/caffe_install/">Caffe安装新坑</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/link/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              友链
-            </a>
+          <li>
+            <a href="/2017/05/07/python-file-print/">Python_file_print</a>
           </li>
         
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/about/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              关于
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
-              RSS
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/search/"
-              rel="noopener noreferrer"
-              target="_self"
-              >
-              搜索
-            </a>
+          <li>
+            <a href="/2017/03/28/caffe-solver小结/">Caffe_solver小结</a>
           </li>
         
       </ul>
-
     </div>
   </div>
-</div>
-
-
 
   
-      <div class="fexo-comments comments-post">
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 chengqishang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">about</a>
+  
+</nav>
     
 
-    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-    
+<script src="/js/script.js"></script>
 
   </div>
-
-  
-
-  <script type="text/javascript">
-  function loadScript(url, callback) {
-    var script = document.createElement('script')
-    script.type = 'text/javascript';
-
-    if (script.readyState) { //IE
-      script.onreadystatechange = function() {
-        if (script.readyState == 'loaded' ||
-          script.readyState == 'complete') {
-          script.onreadystatechange = null;
-          callback();
-        }
-      };
-    } else { //Others
-      script.onload = function() {
-        callback();
-      };
-    }
-
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
-
-  window.onload = function() {
-    loadScript('/js/bundle.js?235683', function() {
-      // load success
-    });
-  }
-</script>
-
 </body>
 </html>
