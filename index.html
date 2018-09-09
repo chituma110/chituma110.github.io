@@ -1,12 +1,2206 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Goals determine what you are going to be"><title>程起上的博客 | Goals determine what you are going to be</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">程起上的博客</h1><a id="logo" href="/.">程起上的博客</a><p class="description">Goals determine what you are going to be</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2018/05/17/python-random/">Python-Random</a></h1><div class="post-meta">2018-05-17</div><div class="post-content"><p>最近在使用python的随机数，所以总结一下。</p>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Goals determine what you are going to be">
+<meta property="og:type" content="website">
+<meta property="og:title" content="程起上的博客">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="程起上的博客">
+<meta property="og:description" content="Goals determine what you are going to be">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程起上的博客">
+<meta name="twitter:description" content="Goals determine what you are going to be">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="程起上的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>程起上的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">程起上的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Goals determine what you are going to be</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/python-random/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/17/python-random/" itemprop="url">
+                  Python-Random
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-17 14:21:50" itemprop="dateCreated datePublished" datetime="2018-05-17T14:21:50+08:00">2018-05-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-03-15 13:27:30" itemprop="dateModified" datetime="2017-03-15T13:27:30+08:00">2017-03-15</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在使用python的随机数，所以总结一下。</p>
 <h1 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h1><p>​    <strong>import random</strong></p>
-<h1 id="具体的函数"><a href="#具体的函数" class="headerlink" title="具体的函数"></a>具体的函数</h1><ul></div><p class="readmore"><a href="/2018/05/17/python-random/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/05/17/hello-world/">Hello World</a></h1><div class="post-meta">2018-05-17</div><div class="post-content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p></div><p class="readmore"><a href="/2018/05/17/hello-world/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/12/06/caffe_install/">Caffe安装新坑</a></h1><div class="post-meta">2017-12-06</div><div class="post-content"><p>#写在前面的话</p>
+<h1 id="具体的函数"><a href="#具体的函数" class="headerlink" title="具体的函数"></a>具体的函数</h1><ul>
+<li><p>random.random() </p>
+<p>随机生成一个0-1之间浮点数</p>
+</li>
+<li><p>random.uniform(a, b)</p>
+<p>生成[a, b]之间的均匀分布的随机数</p>
+</li>
+<li><p>random.randint(a, b)</p>
+<p>生成[a, b]之间的随机的整数</p>
+</li>
+<li><p>random.randrange(start, stop, step)</p>
+<p>生成[start : step : stop]这个数列中的随机一个数。</p>
+<p>特例：若step为偶数，start为偶数，则随机生成指定范围的偶数；若start为奇数，则生成指定范围内的奇数</p>
+</li>
+<li><p>random.choice(sequence)</p>
+<p>从序列sequence中随机选择一个元素</p>
+</li>
+<li><p>random.shuffle(X)</p>
+<p>打乱列表X的元素顺序</p>
+</li>
+<li><p>random.sample(X, k)</p>
+<p>从列表X中随机选取K个数</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/17/hello-world/" itemprop="url">
+                  Hello World
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-17 14:21:50" itemprop="dateCreated datePublished" datetime="2018-05-17T14:21:50+08:00">2018-05-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-03-22 14:10:38" itemprop="dateModified" datetime="2017-03-22T14:10:38+08:00">2017-03-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h3><p>hexo中添加图片的方法<br>1.设置站点配置_config.yml</p>
+<blockquote>
+<p>post_asset_folder: true</p>
+</blockquote>
+<p>2.安装插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image -- save11</span><br></pre></td></tr></table></figure>
+<p>3 引用图片<br>3.1 利用标签引用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1 &#123;% asset_path slug %&#125;</span><br><span class="line">2 &#123;% asset_img slug [title] %&#125;</span><br><span class="line">3 &#123;% asset_link slug [title] %&#125;123123</span><br></pre></td></tr></table></figure>
+<p>3.2 利用makdown</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![例子](例子.png)11</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/caffe_install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/06/caffe_install/" itemprop="url">
+                  Caffe安装新坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-06 19:42:45" itemprop="dateCreated datePublished" datetime="2017-12-06T19:42:45+08:00">2017-12-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-02 15:17:07" itemprop="dateModified" datetime="2018-03-02T15:17:07+08:00">2018-03-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#写在前面的话</p>
 <p>今天教研室新进了两台双TITANX的机器。老板大人叫我测一下，机器跑网络的时候声音大不大。本来觉得简单得很，，，毕竟我已经是老手了。但是现实给了我一个小巴掌。。。啪啪作响。。</p>
 <p>遇到三个问题。</p>
-<h2 id="问题一-更新源时出现-404-NotFound"><a href="#问题一-更新源时出现-404-NotFound" class="headerlink" title="问题一 更新源时出现 404 NotFound"></a>问题一 更新源时出现 404 NotFound</h2><p>  <code>sudo apt-get update</code>这句是常用的更新源的命令。但是嘞，这段时间出现了个怪现象，<br>    <code>W: 无法下载 http://ppa.launchpad.net/fcitx-team/nightly/ubuntu/dists/jessie/main/binary-amd64/Packages  404  Not Found</code></p></div><p class="readmore"><a href="/2017/12/06/caffe_install/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/05/07/python-file-print/">Python_file_print</a></h1><div class="post-meta">2017-05-07</div><div class="post-content"><h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>​    最近在重新翻看《Python核心编程(第二版)》，发现之前忽略的一个知识点，就是文件的输出中关于换行符(‘\n’)的处理。于是就想写在这里做个记录。</p></div><p class="readmore"><a href="/2017/05/07/python-file-print/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/03/28/caffe-solver小结/">Caffe_solver小结</a></h1><div class="post-meta">2017-03-28</div><p class="readmore"><a href="/2017/03/28/caffe-solver小结/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/03/28/python之于LMDB初探/">python之于LMDB初探</a></h1><div class="post-meta">2017-03-28</div><div class="post-content"><h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这几天做老板的项目，因为大家的数据集简直脏的要我命，我将数据按照SSD的creat_data.sh的方式做成LMDB，然后在处理的时候每次到达一定的迭代次数，就会出现img_channel为1。但是mean_value的channel是3.这就尴尬了啊。。。我完全不知道是哪张图片，而且可想而知，有一张就不可能仅仅就只有一张。。。所以我就想办法处理掉这些错误的图片。于是在处理这个错误的时候我就想将LMDB中数据给一一读出来。于是就有了下面的内容。</p></div><p class="readmore"><a href="/2017/03/28/python之于LMDB初探/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/03/22/Python写caffe层/">Python写caffe层</a></h1><div class="post-meta">2017-03-22</div><div class="post-content"><h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>因为工作需要，需要用Python写新层，正好也看过这方面的工作。今天就来小小的记录一下，以免自己忘记了。</p>
-<p>Python写层最多的是看到些数据层。所以我们今天就写一个数据层的例子。我们一共分3步走。</p></div><p class="readmore"><a href="/2017/03/22/Python写caffe层/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/03/21/test/">Test</a></h1><div class="post-meta">2017-03-21</div><div class="post-content"><p>就为了做个测试。</p>
+<h2 id="问题一-更新源时出现-404-NotFound"><a href="#问题一-更新源时出现-404-NotFound" class="headerlink" title="问题一 更新源时出现 404 NotFound"></a>问题一 更新源时出现 404 NotFound</h2><p>  <code>sudo apt-get update</code>这句是常用的更新源的命令。但是嘞，这段时间出现了个怪现象，<br>    <code>W: 无法下载 http://ppa.launchpad.net/fcitx-team/nightly/ubuntu/dists/jessie/main/binary-amd64/Packages  404  Not Found</code></p>
+<p><img src="/2017/12/06/caffe_install/fig1.jpg" alt="错误的现象"></p>
+<p>出现了这个状况咋解决了？</p>
+<p>#解决方案：<br>  将对应的PPA删除掉即可</p>
+<p>  使用以下命令切换到对应PPA目录：<br>    <code>cd /etc/apt/sources.list.d</code><br><img src="/2017/12/06/caffe_install/fig2.jpg" alt="解决方案"></p>
+<p>找到上述无法下载的对应PPA目录，即extra-ppas.list，安全起见，用mv命令将该文件添加后缀.bak即可</p>
+<p><img src="/2017/12/06/caffe_install/fig3.jpg" alt="结果"></p>
+<p>这个时候就好了。</p>
+<h2 id="问题二-libopencv-dev的安装"><a href="#问题二-libopencv-dev的安装" class="headerlink" title="问题二 libopencv-dev的安装"></a>问题二 libopencv-dev的安装</h2><p>  安装opencv真的是个大坑。。。我先是用最基本的<code>sudo apt-get install libopencv-dev</code>来安装的。但是嘞，出现了个错误，就是说libatk无法安装。怎么弄都解决不了。</p>
+<p>  后来我安装了aptitude(<code>sudo apt-get install aptitude</code>)<br>  然后利用aptitude 来安装libopencv-dev（<code>sudo aptitude install libopencv-dev</code>）<br>  你还真别说。。。这么一变化，我还就安装成功了。。。。</p>
+<h2 id="问题三-libcudart-so-8-0"><a href="#问题三-libcudart-so-8-0" class="headerlink" title="问题三 libcudart.so.8.0"></a>问题三 libcudart.so.8.0</h2><p>这个问题最好解决。</p>
+<pre><code>`export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+ export PATH=/usr/local/cuda-8.0/bin:$PATH`
+</code></pre><p>你还别说，就这3个小问题。。。折腾了我一个下午。。。主要是如何解决问题二。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/python-file-print/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/07/python-file-print/" itemprop="url">
+                  Python_file_print
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-07 20:52:21 / 修改时间：21:58:25" itemprop="dateCreated datePublished" datetime="2017-05-07T20:52:21+08:00">2017-05-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>​    最近在重新翻看《Python核心编程(第二版)》，发现之前忽略的一个知识点，就是文件的输出中关于换行符(‘\n’)的处理。于是就想写在这里做个记录。</p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>大概就是我有一个txt文件，这个时候我要把它的每一行都打印出来，但是我们知道文本的每一行都有一个’\n’换行符。。这就麻烦了。。我们直接上个代码来看看。。</p>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p><img src="/2017/05/07/python-file-print/file.jpg" alt="file_image"></p>
+<h2 id="正常的文件读取是什么样的呢？"><a href="#正常的文件读取是什么样的呢？" class="headerlink" title="正常的文件读取是什么样的呢？"></a>正常的文件读取是什么样的呢？</h2><p>直接上代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file = open(<span class="string">'index_display.txt'</span>)</span><br><span class="line"><span class="keyword">for</span> eachLine <span class="keyword">in</span> file:</span><br><span class="line">    <span class="keyword">print</span> eachLine</span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
+<h2 id="结果呢："><a href="#结果呢：" class="headerlink" title="结果呢："></a>结果呢：</h2><p><img src="/2017/05/07/python-file-print/result1.jpg" alt="結果一"></p>
+<p>我们可以看到，每两行输出之间都会有一个空行，，这样就太不美观了。也和原始图片不相符。。那么我们怎么修改呢？狠狠简单。</p>
+<h2 id="狠狠简单，，，简单的你都想不到。。。"><a href="#狠狠简单，，，简单的你都想不到。。。" class="headerlink" title="狠狠简单，，，简单的你都想不到。。。"></a>狠狠简单，，，简单的你都想不到。。。</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file = open(<span class="string">'index_display.txt'</span>)</span><br><span class="line">foe eachLine <span class="keyword">in</span> file:</span><br><span class="line">    <span class="keyword">print</span> eachLine,</span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
+<h2 id="這時候的結果呢？"><a href="#這時候的結果呢？" class="headerlink" title="這時候的結果呢？"></a>這時候的結果呢？</h2><p><img src="/2017/05/07/python-file-print/result2.jpg" alt="結果二"></p>
+<p>發現沒有啊？我們僅僅是加了一個小小的逗號。。。哈哈哈就可以完美的解決這個問題了。</p>
+<h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><p>print语句默认在输出内容末尾后加一个换行符，而在语句后加一个逗号就可以避免这个行为。<code>readline()</code>和<code>readlines()</code>函数不对行里面的空白字符做任何处理，所以我们有必要加上逗号，如果我们省略逗号，那么显示出的文本每行后会有两个换行符，其中一个是输入是附带的，另一个是<code>print</code>语句自动添加。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>《Python核心编程(第二版)》</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/caffe-solver小结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/28/caffe-solver小结/" itemprop="url">
+                  Caffe_solver小结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-28 21:19:39" itemprop="dateCreated datePublished" datetime="2017-03-28T21:19:39+08:00">2017-03-28</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/python之于LMDB初探/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/28/python之于LMDB初探/" itemprop="url">
+                  python之于LMDB初探
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-28 13:07:29 / 修改时间：13:41:30" itemprop="dateCreated datePublished" datetime="2017-03-28T13:07:29+08:00">2017-03-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这几天做老板的项目，因为大家的数据集简直脏的要我命，我将数据按照SSD的creat_data.sh的方式做成LMDB，然后在处理的时候每次到达一定的迭代次数，就会出现img_channel为1。但是mean_value的channel是3.这就尴尬了啊。。。我完全不知道是哪张图片，而且可想而知，有一张就不可能仅仅就只有一张。。。所以我就想办法处理掉这些错误的图片。于是在处理这个错误的时候我就想将LMDB中数据给一一读出来。于是就有了下面的内容。</p>
+<p><strong>直接放代码</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.insert(<span class="number">0</span>, <span class="string">"/home/caffe-master/python"</span>)<span class="comment">#将caffepython的加入python路径中，0：是放在PYTHONPATH中的位置,后面就是caffepython的路径。</span></span><br><span class="line"><span class="keyword">import</span> caffe<span class="comment">#上面一句话就是为了这一句不出错</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> lmdb</span><br><span class="line"><span class="keyword">import</span> argparse<span class="comment">#做输入的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    parse = argparse.ArgumentParser()<span class="comment">#创建命令行对象</span></span><br><span class="line">    paese.add_argument(<span class="string">'--lmdbpath'</span>)<span class="comment">#添加一个命令</span></span><br><span class="line">    args = parse.parse_args()<span class="comment">#解析命令行</span></span><br><span class="line">    </span><br><span class="line">    env = lmdb.open(args.lmdbpath, readonly=<span class="keyword">True</span>)<span class="comment">#打开LMDB文件，只读。</span></span><br><span class="line">    <span class="keyword">with</span> env.begin() <span class="keyword">as</span> txn:</span><br><span class="line">        cursor = txn.cursor() <span class="comment">#A</span></span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> cursor:</span><br><span class="line">            <span class="comment">#print(key, len(value))#value是string类型</span></span><br><span class="line">            <span class="keyword">print</span> <span class="string">'key: '</span>,key</span><br><span class="line">            datum = caffe.proto.caffe_pb2.Datum()<span class="comment">#datum类型 #B</span></span><br><span class="line">            datum.ParseFromString(value)<span class="comment">#转化为datum</span></span><br><span class="line">            flat_x = np.fromstring(datum.data, dtype=np.uint8)<span class="comment">#转化为numpy类型 #C</span></span><br></pre></td></tr></table></figure>
+<p><strong>结果：</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#.................前面有30571个这样的输出.........................</span></span><br><span class="line">key: <span class="number">00030572</span>_new_data/JPEGImage/IMG_LIANGXJ_028_2.jpg</span><br></pre></td></tr></table></figure>
+<p><strong>解释：</strong></p>
+<p>下面给出A, B, C 三处的对象所对应的方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> dir(cursor)</span><br><span class="line">[<span class="string">'__class__'</span>, <span class="string">'__delattr__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__enter__'</span>, <span class="string">'__exit__'</span>, <span class="string">'__format__'</span>, <span class="string">'__getattribute__'</span>, <span class="string">'__hash__'</span>, <span class="string">'__init__'</span>, <span class="string">'__iter__'</span>, <span class="string">'__new__'</span>, <span class="string">'__reduce__'</span>, <span class="string">'__reduce_ex__'</span>, <span class="string">'__repr__'</span>, <span class="string">'__setattr__'</span>, <span class="string">'__sizeof__'</span>, <span class="string">'__str__'</span>, <span class="string">'__subclasshook__'</span>, <span class="string">'_iter_from'</span>, <span class="string">'close'</span>, <span class="string">'count'</span>, <span class="string">'delete'</span>, <span class="string">'first'</span>, <span class="string">'first_dup'</span>, <span class="string">'get'</span>, <span class="string">'item'</span>, <span class="string">'iternext'</span>, <span class="string">'iternext_dup'</span>, <span class="string">'iternext_nodup'</span>, <span class="string">'iterprev'</span>, <span class="string">'iterprev_dup'</span>, <span class="string">'iterprev_nodup'</span>, <span class="string">'key'</span>, <span class="string">'last'</span>, <span class="string">'last_dup'</span>, <span class="string">'next'</span>, <span class="string">'next_dup'</span>, <span class="string">'next_nodup'</span>, <span class="string">'pop'</span>, <span class="string">'prev'</span>, <span class="string">'prev_dup'</span>, <span class="string">'prev_nodup'</span>, <span class="string">'put'</span>, <span class="string">'putmulti'</span>, <span class="string">'replace'</span>, <span class="string">'set_key'</span>, <span class="string">'set_key_dup'</span>, <span class="string">'set_range'</span>, <span class="string">'set_range_dup'</span>, <span class="string">'value'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> dir(datum)</span><br><span class="line">[<span class="string">'ByteSize'</span>, <span class="string">'CHANNELS_FIELD_NUMBER'</span>, <span class="string">'Clear'</span>, <span class="string">'ClearExtension'</span>, <span class="string">'ClearField'</span>, <span class="string">'CopyFrom'</span>, <span class="string">'DATA_FIELD_NUMBER'</span>, <span class="string">'DESCRIPTOR'</span>, <span class="string">'DiscardUnknownFields'</span>, <span class="string">'ENCODED_FIELD_NUMBER'</span>, <span class="string">'FLOAT_DATA_FIELD_NUMBER'</span>, <span class="string">'FindInitializationErrors'</span>, <span class="string">'FromString'</span>, <span class="string">'HEIGHT_FIELD_NUMBER'</span>, <span class="string">'HasExtension'</span>, <span class="string">'HasField'</span>, <span class="string">'IsInitialized'</span>, <span class="string">'LABEL_FIELD_NUMBER'</span>, <span class="string">'ListFields'</span>, <span class="string">'MergeFrom'</span>, <span class="string">'MergeFromString'</span>, <span class="string">'ParseFromString'</span>, <span class="string">'RegisterExtension'</span>, <span class="string">'SerializePartialToString'</span>, <span class="string">'SerializeToString'</span>, <span class="string">'SetInParent'</span>, <span class="string">'WIDTH_FIELD_NUMBER'</span>, <span class="string">'WhichOneof'</span>, <span class="string">'_InternalParse'</span>, <span class="string">'_InternalSerialize'</span>, <span class="string">'_Modified'</span>, <span class="string">'_SetListener'</span>, <span class="string">'_UpdateOneofState'</span>, <span class="string">'__class__'</span>, <span class="string">'__deepcopy__'</span>, <span class="string">'__delattr__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__eq__'</span>, <span class="string">'__format__'</span>, <span class="string">'__getattribute__'</span>, <span class="string">'__getstate__'</span>, <span class="string">'__hash__'</span>, <span class="string">'__init__'</span>, <span class="string">'__metaclass__'</span>, <span class="string">'__module__'</span>, <span class="string">'__ne__'</span>, <span class="string">'__new__'</span>, <span class="string">'__reduce__'</span>, <span class="string">'__reduce_ex__'</span>, <span class="string">'__repr__'</span>, <span class="string">'__setattr__'</span>, <span class="string">'__setstate__'</span>, <span class="string">'__sizeof__'</span>, <span class="string">'__slots__'</span>, <span class="string">'__str__'</span>, <span class="string">'__subclasshook__'</span>, <span class="string">'__unicode__'</span>, <span class="string">'__weakref__'</span>, <span class="string">'_cached_byte_size'</span>, <span class="string">'_cached_byte_size_dirty'</span>, <span class="string">'_decoders_by_tag'</span>, <span class="string">'_extensions_by_name'</span>, <span class="string">'_extensions_by_number'</span>, <span class="string">'_fields'</span>, <span class="string">'_is_present_in_parent'</span>, <span class="string">'_listener'</span>, <span class="string">'_listener_for_children'</span>, <span class="string">'_oneofs'</span>, <span class="string">'_unknown_fields'</span>, <span class="string">'channels'</span>, <span class="string">'data'</span>, <span class="string">'encoded'</span>, <span class="string">'float_data'</span>, <span class="string">'height'</span>, <span class="string">'label'</span>, <span class="string">'width'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">print</span> dir(flat_x)</span><br><span class="line">[<span class="string">'T'</span>, <span class="string">'__abs__'</span>, <span class="string">'__add__'</span>, <span class="string">'__and__'</span>, <span class="string">'__array__'</span>, <span class="string">'__array_finalize__'</span>, <span class="string">'__array_interface__'</span>, <span class="string">'__array_prepare__'</span>, <span class="string">'__array_priority__'</span>, <span class="string">'__array_struct__'</span>, <span class="string">'__array_wrap__'</span>, <span class="string">'__class__'</span>, <span class="string">'__contains__'</span>, <span class="string">'__copy__'</span>, <span class="string">'__deepcopy__'</span>, <span class="string">'__delattr__'</span>, <span class="string">'__delitem__'</span>, <span class="string">'__delslice__'</span>, <span class="string">'__div__'</span>, <span class="string">'__divmod__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__eq__'</span>, <span class="string">'__float__'</span>, <span class="string">'__floordiv__'</span>, <span class="string">'__format__'</span>, <span class="string">'__ge__'</span>, <span class="string">'__getattribute__'</span>, <span class="string">'__getitem__'</span>, <span class="string">'__getslice__'</span>, <span class="string">'__gt__'</span>, <span class="string">'__hash__'</span>, <span class="string">'__hex__'</span>, <span class="string">'__iadd__'</span>, <span class="string">'__iand__'</span>, <span class="string">'__idiv__'</span>, <span class="string">'__ifloordiv__'</span>, <span class="string">'__ilshift__'</span>, <span class="string">'__imod__'</span>, <span class="string">'__imul__'</span>, <span class="string">'__index__'</span>, <span class="string">'__init__'</span>, <span class="string">'__int__'</span>, <span class="string">'__invert__'</span>, <span class="string">'__ior__'</span>, <span class="string">'__ipow__'</span>, <span class="string">'__irshift__'</span>, <span class="string">'__isub__'</span>, <span class="string">'__iter__'</span>, <span class="string">'__itruediv__'</span>, <span class="string">'__ixor__'</span>, <span class="string">'__le__'</span>, <span class="string">'__len__'</span>, <span class="string">'__long__'</span>, <span class="string">'__lshift__'</span>, <span class="string">'__lt__'</span>, <span class="string">'__mod__'</span>, <span class="string">'__mul__'</span>, <span class="string">'__ne__'</span>, <span class="string">'__neg__'</span>, <span class="string">'__new__'</span>, <span class="string">'__nonzero__'</span>, <span class="string">'__oct__'</span>, <span class="string">'__or__'</span>, <span class="string">'__pos__'</span>, <span class="string">'__pow__'</span>, <span class="string">'__radd__'</span>, <span class="string">'__rand__'</span>, <span class="string">'__rdiv__'</span>, <span class="string">'__rdivmod__'</span>, <span class="string">'__reduce__'</span>, <span class="string">'__reduce_ex__'</span>, <span class="string">'__repr__'</span>, <span class="string">'__rfloordiv__'</span>, <span class="string">'__rlshift__'</span>, <span class="string">'__rmod__'</span>, <span class="string">'__rmul__'</span>, <span class="string">'__ror__'</span>, <span class="string">'__rpow__'</span>, <span class="string">'__rrshift__'</span>, <span class="string">'__rshift__'</span>, <span class="string">'__rsub__'</span>, <span class="string">'__rtruediv__'</span>, <span class="string">'__rxor__'</span>, <span class="string">'__setattr__'</span>, <span class="string">'__setitem__'</span>, <span class="string">'__setslice__'</span>, <span class="string">'__setstate__'</span>, <span class="string">'__sizeof__'</span>, <span class="string">'__str__'</span>, <span class="string">'__sub__'</span>, <span class="string">'__subclasshook__'</span>, <span class="string">'__truediv__'</span>, <span class="string">'__xor__'</span>, <span class="string">'all'</span>, <span class="string">'any'</span>, <span class="string">'argmax'</span>, <span class="string">'argmin'</span>, <span class="string">'argpartition'</span>, <span class="string">'argsort'</span>, <span class="string">'astype'</span>, <span class="string">'base'</span>, <span class="string">'byteswap'</span>, <span class="string">'choose'</span>, <span class="string">'clip'</span>, <span class="string">'compress'</span>, <span class="string">'conj'</span>, <span class="string">'conjugate'</span>, <span class="string">'copy'</span>, <span class="string">'ctypes'</span>, <span class="string">'cumprod'</span>, <span class="string">'cumsum'</span>, <span class="string">'data'</span>, <span class="string">'diagonal'</span>, <span class="string">'dot'</span>, <span class="string">'dtype'</span>, <span class="string">'dump'</span>, <span class="string">'dumps'</span>, <span class="string">'fill'</span>, <span class="string">'flags'</span>, <span class="string">'flat'</span>, <span class="string">'flatten'</span>, <span class="string">'getfield'</span>, <span class="string">'imag'</span>, <span class="string">'item'</span>, <span class="string">'itemset'</span>, <span class="string">'itemsize'</span>, <span class="string">'max'</span>, <span class="string">'mean'</span>, <span class="string">'min'</span>, <span class="string">'nbytes'</span>, <span class="string">'ndim'</span>, <span class="string">'newbyteorder'</span>, <span class="string">'nonzero'</span>, <span class="string">'partition'</span>, <span class="string">'prod'</span>, <span class="string">'ptp'</span>, <span class="string">'put'</span>, <span class="string">'ravel'</span>, <span class="string">'real'</span>, <span class="string">'repeat'</span>, <span class="string">'reshape'</span>, <span class="string">'resize'</span>, <span class="string">'round'</span>, <span class="string">'searchsorted'</span>, <span class="string">'setfield'</span>, <span class="string">'setflags'</span>, <span class="string">'shape'</span>, <span class="string">'size'</span>, <span class="string">'sort'</span>, <span class="string">'squeeze'</span>, <span class="string">'std'</span>, <span class="string">'strides'</span>, <span class="string">'sum'</span>, <span class="string">'swapaxes'</span>, <span class="string">'take'</span>, <span class="string">'tobytes'</span>, <span class="string">'tofile'</span>, <span class="string">'tolist'</span>, <span class="string">'tostring'</span>, <span class="string">'trace'</span>, <span class="string">'transpose'</span>, <span class="string">'var'</span>, <span class="string">'view'</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="写在后面的话"><a href="#写在后面的话" class="headerlink" title="写在后面的话"></a>写在后面的话</h1><p>在这一次我只查看了datum的channels性质。但是后来我发现所有的datum的channels都是0(ssd在创建LMDB的时候有一个encode选项，，后来我查看了ImageNet的LMDB的channels确实是3).。。。。这就尴尬了。。。还是没有办法解决问题。后来我将batchsize调整为1，每迭代一次就打印出结果，，这样。。。找到了对应的错误图片，然后我将对应的人的所有图片全部删除了。现在搞定了。。。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/Python写caffe层/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/22/Python写caffe层/" itemprop="url">
+                  Python写caffe层
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-22 10:08:22 / 修改时间：19:28:37" itemprop="dateCreated datePublished" datetime="2017-03-22T10:08:22+08:00">2017-03-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>因为工作需要，需要用Python写新层，正好也看过这方面的工作。今天就来小小的记录一下，以免自己忘记了。</p>
+<p>Python写层最多的是看到些数据层。所以我们今天就写一个数据层的例子。我们一共分3步走。</p>
+<h2 id="步奏一：写新层"><a href="#步奏一：写新层" class="headerlink" title="步奏一：写新层"></a>步奏一：写新层</h2><p>​    </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#！-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#author = Cqs</span></span><br><span class="line"><span class="comment">#FileName: MyPythonLayer.py  #1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> caffe</span><br><span class="line"><span class="keyword">import</span> yaml, glob</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> shuffle</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myPythonLayer</span><span class="params">(caffe.Layer)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    reshape images</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setup</span><span class="params">(self, bottom, top)</span>:</span></span><br><span class="line">        params_str = self.param_str.split(<span class="string">','</span>)</span><br><span class="line">        params = [yaml.load(item) <span class="keyword">for</span> item <span class="keyword">in</span> params_str] <span class="comment">#2</span></span><br><span class="line">        <span class="keyword">print</span> params</span><br><span class="line">        self.source = params[<span class="number">0</span>][<span class="string">'source_dir'</span>]</span><br><span class="line">        self.target_size = params[<span class="number">1</span>][<span class="string">'target_size'</span>]</span><br><span class="line">        self.batch_size = params[<span class="number">2</span>][<span class="string">'batch_size'</span>]<span class="comment">#3</span></span><br><span class="line">        self.batch_loader = BatchLoader(source_dir=self.source, target_size=self.target_size)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'Parameter batch_size:&#123;&#125;\n'</span> \</span><br><span class="line">              <span class="string">'source_dir:&#123;&#125;\n'</span> \</span><br><span class="line">              <span class="string">'target_size:&#123;&#125;'</span>.format(self.batch_size, self.source, self.target_size)</span><br><span class="line">        top[<span class="number">0</span>].reshape(self.batch_size, self.target_size, self.target_size, <span class="number">3</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reshape</span><span class="params">(self, bottom, top)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, bottom, top)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> xrange(self.batch_size):</span><br><span class="line">            top[<span class="number">0</span>].data[i, ...] = self.batch_loader.next_batch()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(self, bottom, propagate_down, top)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BatchLoader</span><span class="params">(object)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, source_dir, target_size)</span>:</span></span><br><span class="line">    self.cur = <span class="number">0</span></span><br><span class="line">    self.target_size = target_size</span><br><span class="line">    self.indexlist = glob.glob(source_dir+ <span class="string">'/*.jpg'</span>)<span class="comment">#4</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next_batch</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.cur == len(self.indexlist):</span><br><span class="line">            self.cur = <span class="number">0</span></span><br><span class="line">            shuffle(self.indexlist)</span><br><span class="line">        item = self.indexlist[self.cur]</span><br><span class="line">        img_tmp = cv2.imread(item)</span><br><span class="line">        img_tmp = cv2.resize(src=img_tmp, dsize=(self.target_size, self.target_size))</span><br><span class="line">        self.cur += <span class="number">1</span></span><br><span class="line">        logging.info(<span class="string">'load &#123;&#125; images'</span>.format(self.cur))</span><br><span class="line">        <span class="keyword">return</span> img_tmp</span><br></pre></td></tr></table></figure>
+<p>​    <strong>代码解释：</strong>#1 处是脚本的名字，这个名字在网络定义文件prototxt中会用到。</p>
+<p>​               #2 处的yaml的使用是解析str。<code>str</code>必须以空格间隔，比如”‘batch_size’: 50”, ‘batch_size’: 与50以空格间           隔，反之会报错，这里因为有多个,我不会解析多个对，因此提前将其<code>split</code>,分而治之。</p>
+<p>​              #3处的参数的顺序很重要，网络定义的prototxt的参数的顺序要根据这个来。</p>
+<p>​              #4处的glob.glob(source_dir+ ‘/*.jpg’)返回的是一个list,是source_dir文件夹下的所有jpg文件的绝对路径。</p>
+<p>​    <strong>代码位置</strong>：一般我写的Python层都会放在caffe-master/Python/caffe文件夹下面。这样可以直接找到。</p>
+<p>(有时候可能找不到你写的这个新的层，那么你可以添加如下代码：)</p>
+<p>import sys</p>
+<p>sys.path.append(‘存放模块的文件夹’)</p>
+<p>上面这段代码的意思就是将该模块放到PATHONPATH中</p>
+<p>​    <strong>代码格式</strong>：</p>
+<p>​                        class myPythonLayer(caffe.Layer):</p>
+<p>​                            def setup(self, bottom, top):</p>
+<p>​                            def reshape(self, bottom, top):</p>
+<p>​                            def forward(self, bottom, top):</p>
+<p>​                            def backward(self, bottom, propagate, top):</p>
+<p>可以看到新层是继承caffe.Layer的，这是必须的。同时，大部分层包含四个方法，分别是setup, reshape, forward, backward.这四个函数。setup是对层的初始化过程,当层被调用的时候，会调用方法forward.</p>
+<ul>
+<li><p>top必须被reshape,否则在blob.cpp中的CHECK(data_)的报错。</p>
+</li>
+<li><p>forward应该是必须的。但是backward可以不是必须的。因为网络必须要有前向操作但是可以没有反向传播。</p>
+</li>
+<li><p>注意forward和backward 两个方法的参数</p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="步骤二：生成prototxt"><a href="#步骤二：生成prototxt" class="headerlink" title="步骤二：生成prototxt"></a>步骤二：生成prototxt</h2><p>本来可以用Python直接生成prototxt的。但是我这里遇到了带你问题，我这里还是直接给出prototxt吧。下次博客再给出Python代码生成prototxt的方法吧。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#file_name = mylayer.prototxt</span></span><br><span class="line">layer&#123;</span><br><span class="line">name:<span class="string">'mylayer'</span></span><br><span class="line">type:<span class="string">'Python'</span></span><br><span class="line">top:<span class="string">'images'</span></span><br><span class="line">python_param&#123;</span><br><span class="line">    module:<span class="string">'MyPythonLayer'</span></span><br><span class="line">    layer:<span class="string">'myPythonLayer'</span></span><br><span class="line">    param_str:<span class="string">"'source_dir': '/home/amax/cqs/caffe-master/example/Cqs/data','target_size': 100,'batch_size': 200"</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2017/03/22/Python写caffe层/net.png" alt="网络框图"></p>
+<p><strong>解释：</strong></p>
+<ol>
+<li>我们用Python写的层的type都是’python’.</li>
+<li>pathon_param要给出模块的名字，也就是我们写的新层的文件的名字，而layer就是我们的新层的名字。这里要注意param_str的顺序。</li>
+</ol>
+<h2 id="步奏三：调用运行"><a href="#步奏三：调用运行" class="headerlink" title="步奏三：调用运行"></a>步奏三：调用运行</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">！<span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line">author = Cqs</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> future <span class="keyword">import</span> print_function</span><br><span class="line"><span class="keyword">import</span> caffe</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    net = caffe.Net(<span class="string">'mylayer.prototxt'</span>, caffe.TEST)</span><br><span class="line">    net.forward()</span><br><span class="line">    images = net.blobs[<span class="string">'images'</span>].data</span><br><span class="line">    print(images.shape)</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">/usr/bin/python2<span class="number">.7</span> /home/amax/cqs/caffe-master/examples/Cqs/test.py</span><br><span class="line">WARNING: Logging before InitGoogleLogging() <span class="keyword">is</span> written to STDERR</span><br><span class="line">[&#123;<span class="string">'source_dir'</span>: <span class="string">'/home/amax/cqs/caffe-master/examples/Cqs/data'</span>&#125;, &#123;<span class="string">'batch_size'</span>: <span class="number">200</span>&#125;, &#123;<span class="string">'target_size'</span>: <span class="number">100</span>&#125;]</span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.455627</span> <span class="number">36217</span> net.cpp:<span class="number">51</span>] Initializing net <span class="keyword">from</span> parameters: </span><br><span class="line">Parameter batch_size:<span class="number">200</span></span><br><span class="line">state &#123;</span><br><span class="line">source_dir:/home/amax/cqs/caffe-master/examples/Cqs/data</span><br><span class="line">  phase: TEST</span><br><span class="line">target_size:<span class="number">100</span></span><br><span class="line">  level: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">layer &#123;</span><br><span class="line">  name: <span class="string">"mylayer"</span></span><br><span class="line">  type: <span class="string">"Python"</span></span><br><span class="line">  top: <span class="string">"images"</span></span><br><span class="line">  python_param &#123;</span><br><span class="line">module: <span class="string">"MyPythonLayer"</span></span><br><span class="line">layer: <span class="string">"myPythonLayer"</span></span><br><span class="line">param_str: <span class="string">" \'source_dir\': /home/amax/cqs/caffe-master/examples/Cqs/data, \'batch_size\': 200, \'target_size\': 100 "</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.455687</span> <span class="number">36217</span> layer_factory.hpp:<span class="number">77</span>] Creating layer mylayer</span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.456166</span> <span class="number">36217</span> net.cpp:<span class="number">84</span>] Creating Layer mylayer</span><br><span class="line">I0322 13:53:32.456177 36217 net.cpp:380] mylayer -&gt; images</span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.457883</span> <span class="number">36217</span> net.cpp:<span class="number">122</span>] Setting up mylayer</span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.457898</span> <span class="number">36217</span> net.cpp:<span class="number">129</span>] Top shape: <span class="number">200</span> <span class="number">100</span> <span class="number">100</span> <span class="number">3</span> (<span class="number">6000000</span>)</span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.457903</span> <span class="number">36217</span> net.cpp:<span class="number">137</span>] Memory required <span class="keyword">for</span> data: <span class="number">24000000</span></span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.457908</span> <span class="number">36217</span> net.cpp:<span class="number">200</span>] mylayer does <span class="keyword">not</span> need backward computation.</span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.457912</span> <span class="number">36217</span> net.cpp:<span class="number">242</span>] This network produces output images</span><br><span class="line">I0322 <span class="number">13</span>:<span class="number">53</span>:<span class="number">32.457917</span> <span class="number">36217</span> net.cpp:<span class="number">255</span>] Network initialization done.</span><br><span class="line">INFO:root:load /home/amax/cqs/caffe-master/examples/Cqs/data/<span class="number">000001.j</span>pg images</span><br><span class="line">INFO:root:load /home/amax/cqs/caffe-master/examples/Cqs/data/<span class="number">000002.j</span>pg images</span><br><span class="line">INFO:root:load /home/amax/cqs/caffe-master/examples/Cqs/data/<span class="number">000003.j</span>pg images</span><br><span class="line">................................<span class="number">.196</span>个输出.............................................</span><br><span class="line">INFO:root:load /home/amax/cqs/caffe-master/examples/Cqs/data/<span class="number">000015.j</span>pg images</span><br><span class="line">(<span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">3</span>)</span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><strong>Reference</strong></p>
+<p><a href="https://saicoco.github.io/pycaffe/" target="_blank" rel="noopener">参考一</a></p>
+<p><a href="http://www.voidcn.com/blog/eagelangel/article/p-6119936.html" target="_blank" rel="noopener">参考二</a></p>
+<p><a href="http://pyyaml.org/wiki/PyYAMLDocumentation" target="_blank" rel="noopener">参考三</a></p>
+<p><a href="http://blog.xiayf.cn/2013/01/26/python-string-format/" target="_blank" rel="noopener">参考四</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/21/test/" itemprop="url">
+                  Test
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-21 18:46:51 / 修改时间：18:47:57" itemprop="dateCreated datePublished" datetime="2017-03-21T18:46:51+08:00">2017-03-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>就为了做个测试。</p>
 <p><img src="/2017/03/21/test/test.jpg" alt="测试"></p>
-</div><p class="readmore"><a href="/2017/03/21/test/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/03/21/python-to-exe/">Python创建exe文件</a></h1><div class="post-meta">2017-03-21</div><div class="post-content"><h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。</p></div><p class="readmore"><a href="/2017/03/21/python-to-exe/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/03/19/Object_detection_NMS/">Object_detection_NMS</a></h1><div class="post-meta">2017-03-19</div><div class="post-content"><p>#写在前面的话</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/python-to-exe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/21/python-to-exe/" itemprop="url">
+                  Python创建exe文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-21 16:25:32" itemprop="dateCreated datePublished" datetime="2017-03-21T16:25:32+08:00">2017-03-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-03-22 14:12:52" itemprop="dateModified" datetime="2017-03-22T14:12:52+08:00">2017-03-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>这两天用Python写了一个图片打标签的工具，然后将它包装成了exe文件。在这里记录一下，生成exe的方法。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>py2exe是一个将Python脚本转化成windows上的可独立执行的程序(*.exe)的工具。这样我们就可以不用装Python而在windows上运行这个可执行程序。</p>
+<p>py2exe已经被用于创建wxPython,Tkinter,Pmw,PyGTK,pygame,win32com client server。和其他的独立程序。py2exe是发布在开源许可证下的。</p>
+<h2 id="安装py2exe"><a href="#安装py2exe" class="headerlink" title="安装py2exe"></a>安装py2exe</h2><p>从<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#imread" target="_blank" rel="noopener">网站</a>可以下载到py2exe‑0.6.10a1‑cp27‑none‑win_amd64.whl。然后可以使用pip install 安装。</p>
+<h2 id="py2exe的使用"><a href="#py2exe的使用" class="headerlink" title="py2exe的使用"></a>py2exe的使用</h2><p>假设我们有一个脚本：image_labeling.py的python脚本。现在打算将他们转化为exe文件。首先创建一个mysetup.py的脚本。如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mysetup.py</span></span><br><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line"><span class="keyword">import</span> py2exe</span><br><span class="line">setup(console=[<span class="string">"image_labeling.py"</span>])</span><br></pre></td></tr></table></figure>
+<p>运行方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python mysetup.py py2exe</span><br></pre></td></tr></table></figure>
+<p><img src="/2017/03/21/python-to-exe/exe.png" alt="生成的文件"></p>
+<p><img src="/2017/03/21/python-to-exe/ruanjian.png" alt="软件界面V1"></p>
+<p>上面的命令执行后将产生一个名为dist的子目录，其中包含了myscript.exe, python24.dll, library.zip这些文件。<br>如果你的myscript.py脚本中用了已编译的C扩展模块，那么这些模块也会被拷贝在个子目录中，同样，所有的dll文件在运行时都是需要的，除了系统的dll文件。<br>dist子目录中的文件包含了你的程序所必须的东西，你应将这个子目录中的所有内容一起发布。</p>
+<p>默认情况下，py2exe在目录dist下创建以下这些必须的文件：<br>1、一个或多个exe文件。<br>2、python##.dll。<br>3、几个.pyd文件，它们是已编译的扩展名，它们是exe文件所需要的；加上其它的.dll文件，这些.dll是.pyd所需要的。<br>4、一个library.zip文件，它包含了已编译的纯的python模块如.pyc或.pyo<br>上面的mysetup.py创建了一个控制台的myscript.exe程序，如果你要创建一个图形用户界的程序，那么你只需要将mysetup.py中的console=[“myscript.py”]替换为windows=[“myscript.py”]既可。</p>
+<p>py2exe一次能够创建多个exe文件，你需要将这些脚本文件的列表传递给console或windows的关键字参数。如果你有几个相关联的脚本，那么这是很有用的。<br>运行下面个命令，将显示py2exe命令的所有命令行标记。<br><code>python mysetup.py py2exe --help</code></p>
+<h2 id="指定额外的文件"><a href="#指定额外的文件" class="headerlink" title="指定额外的文件"></a>指定额外的文件</h2><p>一些应用程序在运行时需要额外的文件，诸如配置文件、字体、位图。<br>如果在安装脚本中用data_files可选项指定了那些额外的文件，那么py2exe能将这些文件拷贝到dist子目录中。data_files应包含一个元组(target-dir, files)列表，其中的files是这些额外的文件的列表。<br>示例如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mysetup.py</span></span><br><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> py2exe</span><br><span class="line"></span><br><span class="line">setup(console=[<span class="string">"myscript.py"</span>],</span><br><span class="line">       data_files=[(<span class="string">"bitmaps"</span>,</span><br><span class="line">                    [<span class="string">"bm/large.gif"</span>, <span class="string">"bm/small.gif"</span>]),</span><br><span class="line">                   (<span class="string">"fonts"</span>,</span><br><span class="line">                    glob.glob(<span class="string">"fonts\\*.fnt"</span>))],</span><br></pre></td></tr></table></figure>
+<p>说明：data_files选项将创建一个子目录dist\bitmaps，其中包含两个.gif文件；一个子目录dist\fonts，其中包含了所有的.fnt文件。</p>
+<h2 id="Windows-NT-services"><a href="#Windows-NT-services" class="headerlink" title="Windows NT services"></a>Windows NT services</h2><p>你可以通过传递一个service关键字参数给setup函数来建造Windows NT services<br>,这个service参数的值必须是一个Python模块名(包含一service类)的列表。<br>示例如下：</p>
+<p><code>mysetup.py</code></p>
+<p><code>from distutils.core import setup</code><br><code>import py2exe</code></p>
+<p><code>setup(service=[&quot;MyService&quot;])</code><br>所建造的可执行的service是可以通过在其后跟一定的命令行参数标记来自行安装和卸载的。你可以通过在这个可执行的service(exe)后跟一-help参数来得到更多的帮助。</p>
+<h2 id="COM-servers"><a href="#COM-servers" class="headerlink" title="COM servers"></a>COM servers</h2><p>你可以通过传递一个com_server 关键字参数给setup函数来建造Windows NT services<br>,这个service参数的值必须是一个Python模块名(包含一个或多个COM server 类)的列表。<br>示例如下：</p>
+<p><code>mysetup.py</code></p>
+<p><code>from distutils.core import setup</code><br><code>import py2exe</code></p>
+<p><code>setup(com_server=[&quot;win32com.server.interp&quot;])</code><br>默认情况下，DLL和EXE servers被建造，你不需要它们的话你可以简单的删除它们。</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="http://www.cnblogs.com/rj81/p/5495191.html" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/Object_detection_NMS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chengqishang">
+      <meta itemprop="description" content="Goals determine what you are going to be">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="程起上的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/19/Object_detection_NMS/" itemprop="url">
+                  Object_detection_NMS
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-19 16:27:06" itemprop="dateCreated datePublished" datetime="2017-03-19T16:27:06+08:00">2017-03-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-02 15:16:50" itemprop="dateModified" datetime="2018-03-02T15:16:50+08:00">2018-03-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#写在前面的话</p>
 <p>​    虽然一直标榜自己是做目标检测的。但是一直也没来总结一下目标检测的细节。打算写一个系列，来好好研究一下faster-rcnn的代码。今天就来先记录一下非极大抑制(NMS)算法。</p>
-<p><strong>Non-maximum suppression（非极大抑制）</strong></p></div><p class="readmore"><a href="/2017/03/19/Object_detection_NMS/">阅读全文</a></p></div><nav class="page-navigator"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tag/python-PIL-matplotlib/" style="font-size: 15px;">python, PIL, matplotlib</a> <a href="/tag/卷积/" style="font-size: 15px;">卷积</a> <a href="/tag/python-Algorithms/" style="font-size: 15px;">python, Algorithms</a> <a href="/tag/python-object-detection/" style="font-size: 15px;">python, object_detection</a> <a href="/tag/LSTM/" style="font-size: 15px;">LSTM</a> <a href="/tag/python-caffe/" style="font-size: 15px;">python, caffe</a> <a href="/tag/opencv-libatk/" style="font-size: 15px;">opencv, libatk</a> <a href="/tag/CUDA/" style="font-size: 15px;">CUDA</a> <a href="/tag/Python/" style="font-size: 15px;">Python</a> <a href="/tag/python-random/" style="font-size: 15px;">python,  random</a> <a href="/tag/python-exe/" style="font-size: 15px;">python exe</a> <a href="/tag/Python-LMDB/" style="font-size: 15px;">Python, LMDB</a> <a href="/tag/test/" style="font-size: 15px;">test</a> <a href="/tag/python-VOCxml/" style="font-size: 15px;">python VOCxml</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/17/python-random/">Python-Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/17/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/caffe_install/">Caffe安装新坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/python-file-print/">Python_file_print</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/caffe-solver小结/">Caffe_solver小结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/python之于LMDB初探/">python之于LMDB初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/Python写caffe层/">Python写caffe层</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/test/">Test</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/python-to-exe/">Python创建exe文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/Object_detection_NMS/">Object_detection_NMS</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">程起上的博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<p><strong>Non-maximum suppression（非极大抑制）</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nms</span><span class="params">(dets, thresh)</span>:</span></span><br><span class="line">    x1 = dets[:, <span class="number">0</span>]</span><br><span class="line">    y1 = dets[:, <span class="number">1</span>]</span><br><span class="line">    x2 = dets[:, <span class="number">2</span>]</span><br><span class="line">    y2 = dets[:, <span class="number">3</span>]</span><br><span class="line">    scores = dets[:, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">    areas = (x2 - x1 + <span class="number">1</span>) * (y2 - y1 + <span class="number">1</span>)</span><br><span class="line">    order = scores.argsort()[::<span class="number">-1</span>] <span class="comment"># 降序排序，返回索引</span></span><br><span class="line"></span><br><span class="line">    keep = []</span><br><span class="line">    <span class="keyword">while</span> order.size &gt; <span class="number">0</span>:</span><br><span class="line">        i = order[<span class="number">0</span>]</span><br><span class="line">        keep.append(i)</span><br><span class="line">        xx1 = np.maximum(x1[i], x1[order[<span class="number">1</span>:]])<span class="comment">#比较x1[i]与x1[order[1:]]中每一个值返回最大值</span></span><br><span class="line">        yy1 = np.maximum(y1[i], y1[order[<span class="number">1</span>:]])<span class="comment">#例子：</span></span><br><span class="line">        xx2 = np.minimum(x2[i], x2[order[<span class="number">1</span>:]])<span class="comment">#np.minimum(2, [1, 3, 6])  返回:array([2, 3, 6])</span></span><br><span class="line">        yy2 = np.minimum(y2[i], y2[order[<span class="number">1</span>:]])</span><br><span class="line"></span><br><span class="line">        w = np.maximum(<span class="number">0.0</span>, xx2 - xx1 + <span class="number">1</span>)</span><br><span class="line">        h = np.maximum(<span class="number">0.0</span>, yy2 - yy1 + <span class="number">1</span>)</span><br><span class="line">        inter = w * h</span><br><span class="line">        ovr = inter / (areas[i] + areas[order[<span class="number">1</span>:]] - inter)</span><br><span class="line"></span><br><span class="line">        inds = np.where(ovr &lt;= thresh)[<span class="number">0</span>]</span><br><span class="line">        order = order[inds + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> keep</span><br></pre></td></tr></table></figure>
+<p>这段代码来自RBG大神。</p>
+<p>dets中每一个元素都是一个5维向量，是[X1, Y1, X2, Y2, score], 前四位是坐标，后一位是目标的置信度。</p>
+<p>利用scores可以得到boundingbox的优先度，然后保留优先度最大的box,然后寻找与之IOU小于阈值的bbox,然后保留下来，然后再选择余下来的bbox的优先度最大的bbox,再进行比较。直到没有bbox可以比较了为止。</p>
+<p><img src="/2017/03/19/Object_detection_NMS/NMS.png" alt="NMS"></p>
+<p>一共有6个识别为人的框，每一个框有一个置信率，现在需要消除多余的框：　　</p>
+<ul>
+<li>按置信率排序：0.95, 0.9, 0.9, 0.8, 0.7, 0.7</li>
+<li>取最大0.95的框为一个物体框</li>
+<li>剩余5个框中，去掉与0.95框重叠率大于0.6的框，则保留0.9, 0.8, 0.7三个框</li>
+<li>重复上面三个步骤，　知道没有框了，0.9为一个框</li>
+<li>选出来的为0.95, 0.9</li>
+</ul>
+<p><strong>Reference</strong></p>
+<p><a href="https://saicoco.github.io/object-detection-1/" target="_blank" rel="noopener">参考一</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chengqishang</p>
+              <p class="site-description motion-element" itemprop="description">Goals determine what you are going to be</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chengqishang</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
