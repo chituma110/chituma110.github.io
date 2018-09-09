@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 
 
-  <html class="light page-archives201703">
+  <html class="light page-post">
 
 
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2017/3 | 程起上的博客</title>
+  <title>Python-Random | 程起上的博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="博士,深度学习,目标识别,CNN, RNN, LSTM, Python,吉他,C++," />
+    <meta name="keywords" content="python,  random," />
   
 
-  <meta name="description" content="Goals determine what you are going to be">
-<meta property="og:type" content="website">
-<meta property="og:title" content="程起上的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/03/index.html">
+  <meta name="description" content="最近在使用python的随机数，所以总结一下。 导入包​    import random 具体的函数 random.random()  随机生成一个0-1之间浮点数  random.uniform(a, b) 生成[a, b]之间的均匀分布的随机数  random.randint(a, b) 生成[a, b]之间的随机的整数  random.randrange(start, stop, step">
+<meta name="keywords" content="python,  random">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-Random">
+<meta property="og:url" content="http://yoursite.com/2018/05/17/python-random/index.html">
 <meta property="og:site_name" content="程起上的博客">
-<meta property="og:description" content="Goals determine what you are going to be">
+<meta property="og:description" content="最近在使用python的随机数，所以总结一下。 导入包​    import random 具体的函数 random.random()  随机生成一个0-1之间浮点数  random.uniform(a, b) 生成[a, b]之间的均匀分布的随机数  random.randint(a, b) 生成[a, b]之间的随机的整数  random.randrange(start, stop, step">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-03-15T05:27:30.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程起上的博客">
-<meta name="twitter:description" content="Goals determine what you are going to be">
+<meta name="twitter:title" content="Python-Random">
+<meta name="twitter:description" content="最近在使用python的随机数，所以总结一下。 导入包​    import random 具体的函数 random.random()  随机生成一个0-1之间浮点数  random.uniform(a, b) 生成[a, b]之间的均匀分布的随机数  random.randint(a, b) 生成[a, b]之间的随机的整数  random.randrange(start, stop, step">
 
   
 
@@ -58,17 +60,8 @@
     <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
   
 
-  <div class="content content-archive">
-  <div class="page-header">
-
-  
-    <div class="breadcrumb">
-      <div class="location">博客</div>
-      <i class="icon-location"></i>
-    </div>
-  
-
-  
+  <div class="post-header CENTER">
+   
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
       <span class="toolbox-entry-text">盒子</span>
@@ -158,115 +151,117 @@
   </div>
 
 
+</div>
 
-  <div class="box-blog-info">
-    <a class="avatar" href="/">
-      <img src="/images/me.jpg" alt="" />
-    </a>
-    <div class="info">
-      <h3 class="name" style="font-family: calligraffittiregular">
-        程起上的博客
-      </h3>
-      <div class="slogan">
-        Goals determine what you are going to be
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#导入包"><span class="toc-text">导入包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体的函数"><span class="toc-text">具体的函数</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-python-random" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Python-Random</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.05.17</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>chengqishang</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>最近在使用python的随机数，所以总结一下。</p>
+<h1 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h1><p>​    <strong>import random</strong></p>
+<h1 id="具体的函数"><a href="#具体的函数" class="headerlink" title="具体的函数"></a>具体的函数</h1><ul>
+<li><p>random.random() </p>
+<p>随机生成一个0-1之间浮点数</p>
+</li>
+<li><p>random.uniform(a, b)</p>
+<p>生成[a, b]之间的均匀分布的随机数</p>
+</li>
+<li><p>random.randint(a, b)</p>
+<p>生成[a, b]之间的随机的整数</p>
+</li>
+<li><p>random.randrange(start, stop, step)</p>
+<p>生成[start : step : stop]这个数列中的随机一个数。</p>
+<p>特例：若step为偶数，start为偶数，则随机生成指定范围的偶数；若start为奇数，则生成指定范围内的奇数</p>
+</li>
+<li><p>random.choice(sequence)</p>
+<p>从序列sequence中随机选择一个元素</p>
+</li>
+<li><p>random.shuffle(X)</p>
+<p>打乱列表X的元素顺序</p>
+</li>
+<li><p>random.sample(X, k)</p>
+<p>从列表X中随机选取K个数</p>
+</li>
+</ul>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，chengqishang</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr_wechat.jpg" alt="">
+          </li>
+        
+        </ul>
       </div>
     </div>
   </div>
 
-</div>
 
-
-  <div class="post-list-box archive-body">
-    <ul class="list-post">  <li class="item-year item item-title item-title-2">
-    <a href="/archives/2017" class="text-year">
-      2017
-      <i class="icon-ji"></i>
-      
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/05/17/hello-world/">
+        <i class="icon icon-angle-left"></i>
     </a>
-  </li>
-<li class="item-post item">
-  <span class="post-date">03-28</span>
-
-  
-  <a class="post-title" href="/2017/03/28/caffe-solver小结/">Caffe_solver小结</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-28</span>
-
-  
-  <a class="post-title" href="/2017/03/28/python之于LMDB初探/">python之于LMDB初探</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-22</span>
-
-  
-  <a class="post-title" href="/2017/03/22/Python写caffe层/">Python写caffe层</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-21</span>
-
-  
-  <a class="post-title" href="/2017/03/21/test/">Test</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-21</span>
-
-  
-  <a class="post-title" href="/2017/03/21/python-to-exe/">Python创建exe文件</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-19</span>
-
-  
-  <a class="post-title" href="/2017/03/19/Object_detection_NMS/">Object_detection_NMS</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-19</span>
-
-  
-  <a class="post-title" href="/2017/03/19/Genetic-Algorithms/">Genetic_Algorithms</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-17</span>
-
-  
-  <a class="post-title" href="/2017/03/17/python-PIL-matplotlib/">python_PIL_matplotlib</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">03-15</span>
-
-  
-  <a class="post-title" href="/2017/03/15/python-parse-VOCxml-and-show/">python_parse_VOCxml_and_show</a>
-
-
-</li>
-</ul>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
   </div>
 
-  <div class="archive-footer">
-    
 
-  </div>
+
+
 </div>
 
 
-
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
 
 
 
@@ -365,6 +360,19 @@
 </div>
 
 
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+  </div>
 
   
 

@@ -15,28 +15,21 @@
     <meta name="keywords" content="LSTM," />
   
 
-  <meta name="description" content="写在前面的话动机：锻炼一下自己的英文能力，同时加深对LSTM的理解。
-   本文是对Written Memories: Understanding, Deriving and Extending the LSTM的翻译。
-有什么错误请指正！
-   当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就">
+  <meta name="description" content="写在前面的话动机：锻炼一下自己的英文能力，同时加深对LSTM的理解。    本文是对Written Memories: Understanding, Deriving and Extending the LSTM的翻译。 有什么错误请指正！    当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就">
+<meta name="keywords" content="LSTM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Written Memories:Understanding,Deriving and Extending the LSTM">
 <meta property="og:url" content="http://yoursite.com/2016/08/25/Written-LSTM/index.html">
 <meta property="og:site_name" content="程起上的博客">
-<meta property="og:description" content="写在前面的话动机：锻炼一下自己的英文能力，同时加深对LSTM的理解。
-   本文是对Written Memories: Understanding, Deriving and Extending the LSTM的翻译。
-有什么错误请指正！
-   当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就">
+<meta property="og:description" content="写在前面的话动机：锻炼一下自己的英文能力，同时加深对LSTM的理解。    本文是对Written Memories: Understanding, Deriving and Extending the LSTM的翻译。 有什么错误请指正！    当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2016/08/25/Written-LSTM/NH_SingleRNNcell.png">
 <meta property="og:image" content="http://yoursite.com/2016/08/25/Written-LSTM/NH_ComposedRNNcells.png">
 <meta property="og:image" content="http://yoursite.com/2016/08/25/Written-LSTM/NH_StateLoop.png">
 <meta property="og:updated_time" content="2017-03-20T02:07:47.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Written Memories:Understanding,Deriving and Extending the LSTM">
-<meta name="twitter:description" content="写在前面的话动机：锻炼一下自己的英文能力，同时加深对LSTM的理解。
-   本文是对Written Memories: Understanding, Deriving and Extending the LSTM的翻译。
-有什么错误请指正！
-   当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就">
+<meta name="twitter:description" content="写在前面的话动机：锻炼一下自己的英文能力，同时加深对LSTM的理解。    本文是对Written Memories: Understanding, Deriving and Extending the LSTM的翻译。 有什么错误请指正！    当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就">
 <meta name="twitter:image" content="http://yoursite.com/2016/08/25/Written-LSTM/NH_SingleRNNcell.png">
 
   
@@ -205,7 +198,7 @@
   <div class="article-content">
     
       <h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p><strong>动机：</strong>锻炼一下自己的英文能力，同时加深对LSTM的理解。</p>
-<p>   本文是对<a href="http://r2rt.com/written-memories-understanding-deriving-and-extending-the-lstm.html" target="_blank" rel="external">Written Memories: Understanding, Deriving and Extending the LSTM</a>的翻译。</p>
+<p>   本文是对<a href="http://r2rt.com/written-memories-understanding-deriving-and-extending-the-lstm.html" target="_blank" rel="noopener">Written Memories: Understanding, Deriving and Extending the LSTM</a>的翻译。</p>
 <p><strong>有什么错误请指正！</strong></p>
 <p>   当我第一次接触 Long Short-Term Memory networks(LSTM)时，我很难理解它的复杂性。我甚至不理解为什么它以这种方式设计就可以产生很好地 效果。后来，我发现LSTM是可以被理解的。尽管它表面看起来很复杂。LSTM实际上是基于一系列十分简单，甚至优美的对于神经网络的一些深刻思考。我真希望这篇博客是我第一次学习循环神经网络。</p>
 <p> <strong>在这篇博文中，我们将做如下几件事情：</strong></p>
@@ -215,7 +208,7 @@
 <li><p>我们将介绍LSTM结构背后的直觉。然后我们以此为依据拓展LSTM。沿着这个思路，我们将派生出GRU。我们将推导出伪LSTM。而这种LSTM将比传统的LSTM的性能更好。</p>
 </li>
 <li><p>接下来我们将推广这些直觉的知识是怎么在最近的优秀的结构中得到运用的。比如（highway，残差网络，神经图灵机）。</p>
-<p>本文是关于理论知识的，并没有实现的内容，至于使用Tensorflow实现RNNs可以参考如下的博客。<br><a href="http://r2rt.com/recurrent-neural-networks-in-tensorflow-i.html" target="_blank" rel="external"> Recurrent Neural Networks in Tensorflow I</a>和<a href="http://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html" target="_blank" rel="external">Recurrent Neural Networks in Tensorflow II</a>。</p>
+<p>本文是关于理论知识的，并没有实现的内容，至于使用Tensorflow实现RNNs可以参考如下的博客。<br><a href="http://r2rt.com/recurrent-neural-networks-in-tensorflow-i.html" target="_blank" rel="noopener"> Recurrent Neural Networks in Tensorflow I</a>和<a href="http://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html" target="_blank" rel="noopener">Recurrent Neural Networks in Tensorflow II</a>。</p>
 </li>
 </ol>
 <h1 id="内容-快速链接："><a href="#内容-快速链接：" class="headerlink" title="内容/快速链接："></a>内容/快速链接：</h1><ul>
