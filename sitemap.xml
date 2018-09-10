@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/08/18/2D-Convolution/</loc>
+    
+    <lastmod>2018-09-10T05:28:06.283Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2018-09-09T13:14:06.114Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://yoursite.com/2018/05/17/python-random/</loc>
     
     <lastmod>2017-03-15T05:27:30.218Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/08/18/2D-Convolution/</loc>
-    
-    <lastmod>2016-08-22T13:28:00.457Z</lastmod>
     
   </url>
   
